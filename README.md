@@ -21,4 +21,4 @@ npm run dev
 [点击此处启动权限管理](http://localhost:8889/pages/main.html) （即为http://localhost:8889/pages/main.html）
 
 
-**注意换掉里面的mysql端口，redis端口，三个后端模块有不同的端口都要换，加上一个前段模块的端口也要换**
+**注意换掉里面的mysql端口，redis端口，三个后端模块有不同的端口都要换(blog-admin,blog-app,blog-chat)，加上一个前端(blog-api)模块的跨域配置端口也要换**
