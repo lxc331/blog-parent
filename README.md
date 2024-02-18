@@ -20,6 +20,7 @@ npm run dev
 
 [点击此处启动权限管理](http://localhost:8889/pages/main.html) （即为http://localhost:8889/pages/main.html）
 
+## 备注
 
 **注意换掉里面的mysql端口与redis端口，换成你自己的。**
 
