@@ -21,9 +21,9 @@ npm run dev
 [点击此处启动权限管理](http://localhost:8889/pages/main.html) （即为http://localhost:8889/pages/main.html）
 
 
-**注意换掉里面的mysql端口，redis端口**
+**注意换掉里面的mysql端口与redis端口，换成你自己的。**
 
-**另外三个后端模块有不同的端口(blog-admin,blog-app,blog-chat)，和一个前端(blog-api)模块的跨域配置的端口要注意，你可以直接用我的配置，也可以换成你的配置**
+**另外三个后端模块有不同的端口(blog-admin,blog-app,blog-chat)，和一个前端(blog-api)模块的跨域配置的端口要注意，你可以直接用我的配置，也可以换成你的配置。**
 
 # 3.技术总结
 1）jwt+redis：token令牌的登陆方式、访问速度快、安全性高，redis做了对token和用户信息的管理，用户登录做了缓存。
