@@ -5,6 +5,8 @@
 ## 前端的工程：
 对blog-api内config里的跨域配置要注意
 
+node版本为 10.16.3
+
 ```
 npm install
 npm run build
