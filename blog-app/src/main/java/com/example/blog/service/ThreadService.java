@@ -6,6 +6,8 @@ import com.example.blog.dao.pojo.Article;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Component;
 
+import javax.xml.bind.SchemaOutputResolver;
+
 @Component
 public class ThreadService {
     //期望此操作在线程池执行，不影响原有的主线程
@@ -20,7 +22,7 @@ public class ThreadService {
         updateWrapper.eq(Article::getId ,article.getId());
         //设置一个为了在多线程的环境下线程安全
         //改之前再确认这个值有没有被其他线程抢先修改，类似于CAS操作 cas加自旋，加个循环就是cas
-        updateWrapper.eq(Article ::getViewCounts,viewCounts);
+        updateWrapper.eq(Article::getViewCounts,viewCounts);
         // update article set view_count=100 where view_count=99 and id =111
         //实体类加更新条件
         articleMapper.update(articleUpdate,updateWrapper);
@@ -31,5 +33,23 @@ public class ThreadService {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }*/
+    }
+
+    @Async("taskExecutor")
+    public void updateArticleCommentCount(ArticleMapper articleMapper, Article article) {
+        Integer commentCounts = article.getCommentCounts();
+        Article articleUpdate = new Article();
+        articleUpdate.setCommentCounts(commentCounts + 1);
+
+        LambdaQueryWrapper<Article> updateWrapper = new LambdaQueryWrapper<>();
+        //根据id更新
+        updateWrapper.eq(Article::getId ,article.getId());
+        //设置一个为了在多线程的环境下线程安全
+        //改之前再确认这个值有没有被其他线程抢先修改，类似于CAS操作 cas加自旋，加个循环就是cas
+        updateWrapper.eq(Article::getCommentCounts,commentCounts);
+        // update article set comment_counts=100 where comment_counts=99 and id =111
+        //实体类加更新条件
+
+        articleMapper.update(articleUpdate,updateWrapper);
     }
 }

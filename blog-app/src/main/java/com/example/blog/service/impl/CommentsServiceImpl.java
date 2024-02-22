@@ -1,11 +1,13 @@
 package com.example.blog.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
+import com.example.blog.dao.mapper.ArticleMapper;
 import com.example.blog.dao.mapper.CommentMapper;
 import com.example.blog.dao.pojo.Comment;
 import com.example.blog.dao.pojo.SysUser;
 import com.example.blog.service.CommentsService;
 import com.example.blog.service.SysUserService;
+import com.example.blog.service.ThreadService;
 import com.example.blog.utils.UserThreadLocal;
 import com.example.blog.vo.CommentVo;
 import com.example.blog.vo.Result;
@@ -24,6 +26,11 @@ public class CommentsServiceImpl implements CommentsService {
     private CommentMapper commentMapper;
     @Autowired
     private SysUserService sysUserService;
+    @Autowired
+    private ThreadService threadService;
+    @Autowired
+    private ArticleMapper articleMapper;
+
 
     @Override
     public Result commentsByArticleId(Long articleId) {
@@ -41,6 +48,7 @@ public class CommentsServiceImpl implements CommentsService {
         List<Comment> comments = commentMapper.selectList(queryWrapper);
 
         List<CommentVo> commentVoList = copyList(comments);
+
         return Result.success(commentVoList);
     }
     //发表评论
@@ -64,6 +72,13 @@ public class CommentsServiceImpl implements CommentsService {
         Long toUserId = commentParam.getToUserId();
         comment.setToUid(toUserId == null ? 0 : toUserId);
         this.commentMapper.insert(comment);
+        //发表评论后评论数目修改
+        //发表评论了，新增评论数目，有没有问题呢？
+        //发表评论之后，本应该直接返回数据了，这时候做了一个更新操作，更新时加写锁，阻塞其他的读操作，性能就会比较低
+        //***** 更新 增加了此次接口的 耗时 如果一旦更新出问题，不能影响 查看文章的操作
+        //线程池  可以把更新操作 扔到线程池中去执行，和主线程就不相关了
+        threadService.updateArticleCommentCount(articleMapper,articleMapper.selectById(comment.getArticleId()));
+
         return Result.success(null);
     }
 

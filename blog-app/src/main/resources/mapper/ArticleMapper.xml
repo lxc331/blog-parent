@@ -26,7 +26,7 @@
     <!--mybatis中xml文件用法    https://blog.csdn.net/weixin_43882997/article/details/85625805-->
     <!--动态sql    https://www.jianshu.com/p/e309ae5e4a77-->
     <!--驼峰命名    https://zoutao.blog.csdn.net/article/details/82685918?spm=1001.2101.3001.6650.18&utm_medium=distribute.pc_relevant.none-task-blog-2%7Edefault%7EBlogCommendFromBaidu%7Edefault-18.no_search_link&depth_1-utm_source=distribute.pc_relevant.none-task-blog-2%7Edefault%7EBlogCommendFromBaidu%7Edefault-18.no_search_link-->
-    <select id="listArticle" resultMap="articleMap">
+    <!--<select id="listArticle" resultMap="articleMap">
         select * from ms_article
         <where>
             1 = 1
@@ -39,6 +39,16 @@
             <if test="year!=null and year.length>0 and month!=null and month.length>0">
                 and (FROM_UNIXTIME(create_date/1000,'%Y') =#{year} and FROM_UNIXTIME(create_date/1000,'%m')=#{month})
             </if>
+        </where>
+        order by weight,create_date desc
+    </select>-->
+    <select id="listArticle" resultMap="articleMap">
+        select * from ms_article
+        <where>
+            1 = 1
+            <if test="categoryId != null"> and category_id=#{categoryId} </if>
+            <if test="tagId != null"> and id in (select article_id from ms_article_tag where tag_id=#{tagId}) </if>
+            <if test="year != null and year.length>0 and month != null and month.length>0"> and (FROM_UNIXTIME(create_date/1000,'%Y') =#{year} and FROM_UNIXTIME(create_date/1000,'%m')=#{month}) </if>
         </where>
         order by weight,create_date desc
     </select>

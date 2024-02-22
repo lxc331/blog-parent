@@ -10,7 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-
+//！！！！！！！！！！！！！！！注意由于缓存的原因，虽然展示的速度变快了，但如果一旦遇到更新之后，短时间内显示不出最新的情况
 //json数据交互
 @RestController
 @RequestMapping("articles")
@@ -26,7 +26,6 @@ public class ArticleController {
     @PostMapping
     //加上此注解，代表要对此接口记录日志
     @LogAnnotation(module = "文章",operation = "获取文章列表")
-    @Cache(expire = 5 * 60 * 1000,name = "list_article")
     public Result ListArticle(@RequestBody PageParams pageParams) {
         return articleService.listArticle(pageParams);
     }
@@ -81,6 +80,7 @@ public class ArticleController {
      * @return
      */
     @PostMapping("publish")
+    @LogAnnotation(module = "文章",operation = "写文章或更新文章")
     public Result publish(@RequestBody ArticleParam articleParam){
         return articleService.publish(articleParam);
     }

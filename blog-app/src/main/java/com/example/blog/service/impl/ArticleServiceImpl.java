@@ -1,7 +1,9 @@
 package com.example.blog.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
+import com.baomidou.mybatisplus.core.conditions.update.LambdaUpdateWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.example.blog.dao.mapper.ArticleBodyMapper;
 import com.example.blog.dao.mapper.ArticleMapper;
@@ -15,11 +17,15 @@ import com.example.blog.vo.params.PageParams;
 import org.joda.time.DateTime;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Service
 public class ArticleServiceImpl implements ArticleService {
@@ -37,6 +43,8 @@ public class ArticleServiceImpl implements ArticleService {
     private ThreadService threadService;
     @Autowired
     private ArticleTagMapper articleTagMapper;
+    @Autowired
+    private StringRedisTemplate redisTemplate;
 
     //带body信息，带category信息
     private ArticleVo copy(Article article, boolean isTag, boolean isAuthor, boolean isBody,boolean isCategory){
@@ -52,7 +60,11 @@ public class ArticleServiceImpl implements ArticleService {
         }
         if (isAuthor){
             Long authorId = article.getAuthorId();
-            articleVo.setAuthor(sysUserService.findUserById(authorId).getNickname());
+            UserVo userVo = new UserVo();
+            userVo.setNickname(sysUserService.findUserById(authorId).getNickname());
+            userVo.setAvatar(sysUserService.findUserById(authorId).getAvatar());
+            userVo.setId(authorId.toString());
+            articleVo.setAuthor(userVo);
         }
         if (isBody){
             Long bodyId = article.getBodyId();
@@ -87,16 +99,28 @@ public class ArticleServiceImpl implements ArticleService {
         }
         return articleVoList;
     }
-    /*
-    //这里是一个功能未实现
+
     @Override
     public Result listArticle(PageParams pageParams) {
         Page<Article> page = new Page<>(pageParams.getPage(),pageParams.getPageSize());
-        IPage<Article> articleIPage = this.articleMapper.listArticle(page,pageParams.getCategoryId(),pageParams.getTagId(),pageParams.getYear(),pageParams.getMonth());
-        return Result.success(copyList(articleIPage.getRecords(),true,true));
-    }
-    */
 
+        IPage<Article> articleIPage = articleMapper.listArticle(
+                page,
+                pageParams.getCategoryId(),
+                pageParams.getTagId(),
+                pageParams.getYear(),
+                pageParams.getMonth());
+        List<Article> records = articleIPage.getRecords();
+        for (Article record : records) {
+            String viewCount = (String)redisTemplate.opsForHash().get("view_count", String.valueOf(record.getId()));
+            if (viewCount != null){
+                record.setViewCounts(Integer.parseInt(viewCount));
+            }
+        }
+        return Result.success(copyList(records,true,true));
+    }
+
+    /*
     @Override
     public Result listArticle(PageParams pageParams) {
         //1.分页查询article数据库表
@@ -139,6 +163,7 @@ public class ArticleServiceImpl implements ArticleService {
 
         return Result.success(articleVoList);
     }
+     */
 
     @Override
     public Result HotArticle(int limit) {
@@ -178,12 +203,14 @@ public class ArticleServiceImpl implements ArticleService {
          * 2. 根据bodyId和 categoryid 去做关联查询
          */
         Article article = articleMapper.selectById(articleId);
+
         ArticleVo articleVo = copy(article,true,true,true,true);
         //查看完文章了，新增阅读数，有没有问题呢？
         //查看完文章之后，本应该直接返回数据了，这时候做了一个更新操作，更新时加写锁，阻塞其他的读操作，性能就会比较低
         //***** 更新 增加了此次接口的 耗时 如果一旦更新出问题，不能影响 查看文章的操作
         //线程池  可以把更新操作 扔到线程池中去执行，和主线程就不相关了
         threadService.updateArticleViewCount(articleMapper,article);
+
         return Result.success(articleVo);
     }
 
@@ -211,43 +238,73 @@ public class ArticleServiceImpl implements ArticleService {
          * 4. body 内容存储 article bodyId
          */
         Article article = new Article();
-        article.setAuthorId(sysUser.getId());
-        article.setCategoryId(Long.parseLong(articleParam.getCategory().getId()));
-        article.setCreateDate(System.currentTimeMillis());
-        article.setCommentCounts(0);
-        article.setSummary(articleParam.getSummary());
-        article.setTitle(articleParam.getTitle());
-        article.setViewCounts(0);
-        article.setWeight(Article.Article_Common);
-        article.setBodyId(-1L);
-        //插入之后 会生成一个文章id（因为新建的文章没有文章id所以要insert一下
-        //官网解释："insart后主键会自动'set到实体的ID字段。所以你只需要"getid()就好
-        //利用主键自增，mp的insert操作后id值会回到参数对象中
-        //https://blog.csdn.net/HSJ0170/article/details/107982866
-        this.articleMapper.insert(article);
+        boolean isEdit = false;
+       // System.out.println(articleParam.getId()+"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+        if (articleParam.getId() != null) {
+            article = new Article();
+            article.setId(articleParam.getId());
+            article.setTitle(articleParam.getTitle());
+            article.setSummary(articleParam.getSummary());
+            article.setCategoryId(Long.parseLong(articleParam.getCategory().getId()));
+            articleMapper.updateById(article);
+            isEdit = true;
+        }else {
+            article = new Article();
+            article.setAuthorId(sysUser.getId());
+            article.setWeight(Article.Article_Common);
+            article.setViewCounts(0);
+            article.setTitle(articleParam.getTitle());
+            article.setSummary(articleParam.getSummary());
+            article.setCommentCounts(0);
+            article.setCreateDate(System.currentTimeMillis());
+            article.setCategoryId(Long.parseLong(articleParam.getCategory().getId()));
+            article.setBodyId(-1L);
+            //插入之后 会生成一个文章id（因为新建的文章没有文章id所以要insert一下
+            //官网解释："insert后主键会自动set到实体的ID字段。所以你只需要getid()就好
+            //利用主键自增，mp的insert操作后id值会回到参数对象中
+            //https://blog.csdn.net/HSJ0170/article/details/107982866
+            this.articleMapper.insert(article);
+        }
 
         //tags
         List<TagVo> tags = articleParam.getTags();
         if (tags != null) {
             for (TagVo tag : tags) {
+                Long articleId = article.getId();
+                if (isEdit){
+                    //先删除
+                    LambdaQueryWrapper<ArticleTag> queryWrapper = Wrappers.lambdaQuery();
+                    queryWrapper.eq(ArticleTag::getArticleId,articleId);
+                    articleTagMapper.delete(queryWrapper);
+                }
                 ArticleTag articleTag = new ArticleTag();
-                articleTag.setArticleId(article.getId());
                 articleTag.setTagId(Long.parseLong(tag.getId()));
-                this.articleTagMapper.insert(articleTag);
+                articleTag.setArticleId(articleId);
+                articleTagMapper.insert(articleTag);
             }
         }
         //body
-        ArticleBody articleBody = new ArticleBody();
-        articleBody.setContent(articleParam.getBody().getContent());
-        articleBody.setContentHtml(articleParam.getBody().getContentHtml());
-        articleBody.setArticleId(article.getId());
-        articleBodyMapper.insert(articleBody);
-        //插入完之后再给一个id
-        article.setBodyId(articleBody.getId());
-        //MybatisPlus中的save方法什么时候执行insert，什么时候执行update
-        // https://www.cxyzjd.com/article/Horse7/103868144
-        //只有当更改数据库时才插入或者更新，一般查询就可以了
-        articleMapper.updateById(article);
+        if (isEdit){
+            ArticleBody articleBody = new ArticleBody();
+            articleBody.setArticleId(article.getId());
+            articleBody.setContent(articleParam.getBody().getContent());
+            articleBody.setContentHtml(articleParam.getBody().getContentHtml());
+            LambdaUpdateWrapper<ArticleBody> updateWrapper = Wrappers.lambdaUpdate();
+            updateWrapper.eq(ArticleBody::getArticleId,article.getId());
+            articleBodyMapper.update(articleBody, updateWrapper);
+        }else {
+            ArticleBody articleBody = new ArticleBody();
+            articleBody.setArticleId(article.getId());
+            articleBody.setContent(articleParam.getBody().getContent());
+            articleBody.setContentHtml(articleParam.getBody().getContentHtml());
+            articleBodyMapper.insert(articleBody);
+            //插入完之后再给一个id
+            article.setBodyId(articleBody.getId());
+            //MybatisPlus中的save方法什么时候执行insert，什么时候执行update
+            // https://www.cxyzjd.com/article/Horse7/103868144
+            //只有当更改数据库时才插入或者更新，一般查询就可以了
+            articleMapper.updateById(article);
+        }
 
         ArticleVo articleVo = new ArticleVo();
         articleVo.setId(String.valueOf(article.getId()));

@@ -170,6 +170,9 @@
       editArticle() {
         this.$router.push({path: `/write/${this.article.id}`})
       },
+      deleteArticle() {
+        this.$router.push({path: `/delete/${this.article.id}`})
+      },
       getArticle() {
         let that = this
         viewArticle(that.$route.params.id).then(data => {
