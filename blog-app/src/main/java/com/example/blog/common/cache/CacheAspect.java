@@ -16,16 +16,15 @@ import org.springframework.stereotype.Component;
 
 import java.lang.reflect.Method;
 import java.time.Duration;
-
+//aop 定义一个切面，切面定义了切点与通知的关系
 @Aspect
 @Component
 @Slf4j
 public class CacheAspect {
-
     @Autowired
     private RedisTemplate<String, String> redisTemplate;
 
-    @Pointcut("@annotation(com.example.blog.common.cache.Cache)")
+    @Pointcut("@annotation(com.example.blog.common.cache.Cache)") //指定该注解类作为切点
     public void pt(){}
 
     @Around("pt()")
@@ -77,6 +76,6 @@ public class CacheAspect {
         }
         return Result.fail(-999,"系统错误");
     }
-
+    //注意一个缓存一致性的问题，解决方案：1.使用RocketMq中间件处理 2.当我写数据库的时候及时删除相关缓存
 }
 

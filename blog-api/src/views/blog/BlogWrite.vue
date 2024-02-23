@@ -164,8 +164,7 @@
 
         }).catch(error => {
           if (error !== 'error') {
-            that.$message({type: 'error', message: '文章加载错误', showClose: true})
-            //that.$message({type: 'error',message: id, showClose: true})
+            that.$message({type: 'error', message: '文章加载失败', showClose: true})
           }
         })
       },

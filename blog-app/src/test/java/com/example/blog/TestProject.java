@@ -31,25 +31,5 @@ public class TestProject {
     ArticleParam articleParam = new ArticleParam();
 
 
-    @Test
-    public void publishTest() {
-        Long t = Long.valueOf(1);
-        articleParam.setId(t);
 
-
-        Article article = new Article();
-        boolean isEdit = false;
-        // System.out.println(articleParam.getId()+"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
-        if (articleParam.getId() != null) {
-            article = new Article();
-            article.setId(articleParam.getId());
-            article.setTitle(articleParam.getTitle());
-            article.setSummary(articleParam.getSummary());
-            article.setCategoryId(Long.parseLong(articleParam.getCategory().getId()));
-            articleMapper.updateById(article);
-            isEdit = true;
-        }
-
-        System.out.println(article);
-    }
 }

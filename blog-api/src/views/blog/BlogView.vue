@@ -207,7 +207,7 @@
 
         }).catch(error => {
           if (error !== 'error') {
-            that.$message({type: 'error', message: '评论失败', showClose: true})
+            that.$message({type: 'error', message: '评论失败，请登录', showClose: true})
           }
         })
       },

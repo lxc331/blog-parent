@@ -14,6 +14,7 @@ import com.example.blog.utils.UserThreadLocal;
 import com.example.blog.vo.*;
 import com.example.blog.vo.params.ArticleParam;
 import com.example.blog.vo.params.PageParams;
+import lombok.extern.slf4j.Slf4j;
 import org.joda.time.DateTime;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,6 +28,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+@Slf4j
 @Service
 public class ArticleServiceImpl implements ArticleService {
     @Autowired
@@ -120,51 +122,6 @@ public class ArticleServiceImpl implements ArticleService {
         return Result.success(copyList(records,true,true));
     }
 
-    /*
-    @Override
-    public Result listArticle(PageParams pageParams) {
-        //1.分页查询article数据库表
-        Page<Article> page = new Page<>(pageParams.getPage(), pageParams.getPageSize());
-        LambdaQueryWrapper<Article> queryWrapper = new LambdaQueryWrapper<>();
-
-        //查询文章的参数 加上分类id，判断不为空 加上分类条件
-        if (pageParams.getCategoryId()!=null) {
-            //and category_id=#{categoryId}
-            queryWrapper.eq(Article::getCategoryId,pageParams.getCategoryId());
-        }
-        List<Long> articleIdList = new ArrayList<>();
-        if(pageParams.getTagId()!=null) {
-            //加入标签条件查询
-            //article表中并没有tag字段 一篇文章有多个标签
-            //articie_tog article_id 1：n tag_id
-            //我们需要利用一个全新的属于文章标签的queryWrapper将这篇文章的article_Tag查出来，保存到一个list当中。
-            // 然后再根据queryWrapper的in方法选择我们需要的标签即可。
-
-            LambdaQueryWrapper<ArticleTag> articleTagLambdaQueryWrapper = new LambdaQueryWrapper<>();
-            articleTagLambdaQueryWrapper.eq(ArticleTag::getTagId, pageParams.getTagId());
-            List<ArticleTag> articleTags = articleTagMapper.selectList(articleTagLambdaQueryWrapper);
-            for (ArticleTag articleTag : articleTags) {
-                articleIdList.add(articleTag.getArticleId());
-            }
-            if (articleTags.size() > 0) {
-                // and id in(1,2,3)
-                queryWrapper.in(Article::getId, articleIdList);
-            }
-        }
-
-        //是否置顶排序
-        //order by create_date desc
-        queryWrapper.orderByDesc(Article::getWeight,Article::getCreateDate);
-        Page<Article> articlePage = articleMapper.selectPage(page,queryWrapper);
-        List<Article> recodes = articlePage.getRecords();
-        //能直接返回吗，很明显不能
-        //应该返回与前端交互的vo数据，因为前端返回的数据最好不要与后端数据产生耦合
-        List<ArticleVo> articleVoList = copyList(recodes,true,true);
-
-        return Result.success(articleVoList);
-    }
-     */
-
     @Override
     public Result HotArticle(int limit) {
         LambdaQueryWrapper<Article> queryWrapper = new LambdaQueryWrapper<>();
@@ -239,7 +196,7 @@ public class ArticleServiceImpl implements ArticleService {
          */
         Article article = new Article();
         boolean isEdit = false;
-       // System.out.println(articleParam.getId()+"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+        //log.info("打印输出",articleParam.getId().toString());
         if (articleParam.getId() != null) {
             article = new Article();
             article.setId(articleParam.getId());
