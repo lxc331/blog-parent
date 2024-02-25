@@ -97,4 +97,23 @@ public class ArticleController {
         return articleService.searchArticle(search);
     }
 
+    /**
+     * 文章编辑更新，有id要搜索id
+     * @param articleId
+     * @return
+     */
+    @PostMapping("{id}")
+    public Result articleById(@PathVariable("id") Long articleId){
+        return articleService.findArticleById(articleId);
+    }
+
+    /**
+     * 删除文章
+     * @param articleId
+     * @return
+     */
+    @PostMapping("delete/{id}")
+    public Result deleteById(@PathVariable("id") Long articleId){
+        return articleService.delete(articleId);
+    }
 }

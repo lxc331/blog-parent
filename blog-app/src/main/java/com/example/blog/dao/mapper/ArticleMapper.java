@@ -15,5 +15,4 @@ public interface ArticleMapper extends BaseMapper<Article> {
     List<Archives> listArchives();
     //加上@Param，防止参数传递过去后，被xml识别失败
     IPage<Article> listArticle(Page<Article> page, @Param("categoryId")Long categoryId, @Param("tagId")Long tagId, @Param("year")String year, @Param("month")String month);
-
 }

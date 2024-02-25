@@ -53,4 +53,11 @@ public interface ArticleService {
      * @return
      */
     Result searchArticle(String search);
+
+    /**
+     * 删除文章
+     * @param articleId
+     * @return
+     */
+    Result delete(Long articleId);
 }

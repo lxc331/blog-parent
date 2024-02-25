@@ -277,4 +277,11 @@ public class ArticleServiceImpl implements ArticleService {
         List<Article> articles = articleMapper.selectList(queryWrapper);
         return Result.success(copyList(articles,false,false));
     }
+
+    @Override
+    @Transactional
+    public Result delete(Long articleId) {
+        articleMapper.deleteById(articleId);
+        return Result.success(null);
+    }
 }

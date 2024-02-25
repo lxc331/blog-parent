@@ -84,3 +84,10 @@ export function getArticleById(id) {
     method: 'post'
   })
 }
+
+export function deleteArticleById(id) {
+  return request({
+    url: `/articles/delete/${id}`,
+    method: 'post'
+  })
+}

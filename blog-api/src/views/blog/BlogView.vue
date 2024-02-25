@@ -31,7 +31,15 @@
               style="position: absolute;left: 60%;"
               size="mini"
               round
-              icon="el-icon-edit">编辑</el-button>
+              icon="el-icon-edit">编辑文章</el-button>
+
+            <el-button
+              v-if="this.article.author.id == this.$store.state.id"
+              @click="deleteArticle()"
+              style="position: absolute;left: 67%;"
+              size="mini"
+              round
+              icon="el-icon-delete">删除文章</el-button>
           </div>
           <div class="me-view-content">
             <markdown-editor :editor=article.editor></markdown-editor>
@@ -111,7 +119,7 @@
 <script>
   import MarkdownEditor from '@/components/markdown/MarkdownEditor'
   import CommmentItem from '@/components/comment/CommentItem'
-  import {viewArticle} from '@/api/article'
+  import {viewArticle, deleteArticleById} from '@/api/article'
   import {getCommentsByArticle, publishComment} from '@/api/comment'
 
   import default_avatar from '@/assets/img/default_avatar.png'
@@ -171,7 +179,22 @@
         this.$router.push({path: `/write/${this.article.id}`})
       },
       deleteArticle() {
-        this.$router.push({path: `/delete/${this.article.id}`})
+        this.$confirm('文章将会删除, 是否继续?', '提示', {
+          confirmButtonText: '确定',
+          cancelButtonText: '取消',
+          type: 'warning'
+        }).then(() => {
+          let that = this
+          deleteArticleById(that.article.id).then(
+            that.$message({message: '文章删除成功啦', type: 'success', showClose: true})
+
+          ).catch(error => {
+            if (error !== 'error') {
+              that.$message({type: 'error', message: '文章删除失败', showClose: true})
+            }
+          })
+          that.$router.push('/')
+        })
       },
       getArticle() {
         let that = this
@@ -334,6 +357,5 @@
   .v-note-wrapper .v-note-panel .v-note-show .v-show-content, .v-note-wrapper .v-note-panel .v-note-show .v-show-content-html {
     background: #fff !important;
   }
-
 
 </style>
