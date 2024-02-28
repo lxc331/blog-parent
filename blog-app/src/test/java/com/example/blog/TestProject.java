@@ -8,10 +8,12 @@ import com.example.blog.vo.params.ArticleParam;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.stereotype.Component;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
-@SpringBootTest
 public class TestProject {
     @Autowired
     private TagMapper tagMapper;
@@ -21,14 +23,12 @@ public class TestProject {
     @Test
     public void testTag() {
 
-        Article article = new Article();
+        Map<Integer,Integer> map = new HashMap();
 
-        List<Tag> tagList = tagMapper.findTagsByArticleId(1l);
-        for (Tag tag : tagList)
-            System.out.println(tag);
+        map.put(1,2);
+
+
     }
-
-    ArticleParam articleParam = new ArticleParam();
 
 
 

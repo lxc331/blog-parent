@@ -1,6 +1,6 @@
 package com.example.blog.chat.mapper;
 
-import com.example.blog.chat.po.Staff;
+import com.example.blog.chat.pojo.Staff;
 import org.apache.ibatis.annotations.Mapper;
 
 @Mapper

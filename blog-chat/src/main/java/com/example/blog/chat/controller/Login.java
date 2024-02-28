@@ -2,7 +2,7 @@ package com.example.blog.chat.controller;
 
 import javax.servlet.http.HttpSession;
 
-import com.example.blog.chat.po.User;
+import com.example.blog.chat.pojo.User;
 import com.example.blog.chat.service.LoginService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

@@ -13,7 +13,7 @@ import javax.websocket.Session;
 import javax.websocket.server.PathParam;
 import javax.websocket.server.ServerEndpoint;
 
-import com.example.blog.chat.po.Message;
+import com.example.blog.chat.pojo.Message;
 import org.springframework.stereotype.Component;
 
 import com.alibaba.fastjson.JSON;

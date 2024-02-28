@@ -1,7 +1,7 @@
 package com.example.blog.chat.service.impl;
 
-import com.example.blog.chat.po.SysUser;
-import com.example.blog.chat.po.User;
+import com.example.blog.chat.pojo.SysUser;
+import com.example.blog.chat.pojo.User;
 import com.example.blog.chat.service.LoginService;
 import com.example.blog.chat.service.UserNameService;
 import com.example.blog.chat.utils.UserThreadLocal;

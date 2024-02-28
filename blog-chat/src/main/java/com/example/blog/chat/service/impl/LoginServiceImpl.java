@@ -3,7 +3,7 @@ package com.example.blog.chat.service.impl;
 
 
 import com.example.blog.chat.mapper.LoginMapper;
-import com.example.blog.chat.po.Staff;
+import com.example.blog.chat.pojo.Staff;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Isolation;

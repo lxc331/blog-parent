@@ -1,6 +1,6 @@
 package com.example.blog.chat.utils;
 
-import com.example.blog.chat.po.SysUser;
+import com.example.blog.chat.pojo.SysUser;
 
 public class UserThreadLocal {
     //不让他自行new出来

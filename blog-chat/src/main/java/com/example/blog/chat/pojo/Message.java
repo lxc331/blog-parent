@@ -1,4 +1,4 @@
-package com.example.blog.chat.po;
+package com.example.blog.chat.pojo;
 
 import java.util.Date;
 

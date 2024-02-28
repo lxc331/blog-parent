@@ -1,6 +1,6 @@
 package com.example.blog.chat.service;
 
-import com.example.blog.chat.po.User;
+import com.example.blog.chat.pojo.User;
 
 import javax.servlet.http.HttpSession;
 

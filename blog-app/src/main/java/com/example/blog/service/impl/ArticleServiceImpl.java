@@ -10,6 +10,8 @@ import com.example.blog.dao.mapper.ArticleMapper;
 import com.example.blog.dao.mapper.ArticleTagMapper;
 import com.example.blog.dao.pojo.*;
 import com.example.blog.service.*;
+import com.example.blog.service.threadpoll.ThreadService;
+import com.example.blog.service.threadpoll.UpdateCacheThread;
 import com.example.blog.utils.UserThreadLocal;
 import com.example.blog.vo.*;
 import com.example.blog.vo.params.ArticleParam;
@@ -18,7 +20,6 @@ import lombok.extern.slf4j.Slf4j;
 import org.joda.time.DateTime;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -47,6 +48,8 @@ public class ArticleServiceImpl implements ArticleService {
     private ArticleTagMapper articleTagMapper;
     @Autowired
     private StringRedisTemplate redisTemplate;
+    @Autowired
+    private UpdateCacheThread updateCacheThread;
 
     //带body信息，带category信息
     private ArticleVo copy(Article article, boolean isTag, boolean isAuthor, boolean isBody,boolean isCategory){
@@ -263,9 +266,19 @@ public class ArticleServiceImpl implements ArticleService {
             articleMapper.updateById(article);
         }
 
-        ArticleVo articleVo = new ArticleVo();
-        articleVo.setId(String.valueOf(article.getId()));
-        return Result.success(articleVo);
+        /*ArticleVo articleVo = new ArticleVo();
+        articleVo.setId(String.valueOf(article.getId()));*/
+
+        Map<String,String> map = new HashMap<>();
+        map.put("id",article.getId().toString());
+
+        if (isEdit) {
+            //发送一条消息给消息队列，当前文章更新了，更新一下缓存吧（使用线程池）
+            ArticleMessage articleMessage = new ArticleMessage();
+            articleMessage.setArticleId(article.getId());
+            updateCacheThread.updateArticleCache(articleMessage);
+        }
+        return Result.success(map);
     }
 
     @Override

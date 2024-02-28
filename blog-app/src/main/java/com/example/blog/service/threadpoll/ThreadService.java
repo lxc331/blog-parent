@@ -1,15 +1,28 @@
-package com.example.blog.service;
+package com.example.blog.service.threadpoll;
 
+import com.alibaba.fastjson.JSON;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.example.blog.dao.mapper.ArticleMapper;
 import com.example.blog.dao.pojo.Article;
+import com.example.blog.service.ArticleService;
+import com.example.blog.vo.ArticleMessage;
+import com.example.blog.vo.Result;
+import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.codec.digest.DigestUtils;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Component;
 
-import javax.xml.bind.SchemaOutputResolver;
+import java.time.Duration;
+import java.util.Set;
 
+@Slf4j
 @Component
 public class ThreadService {
+    @Autowired
+    ArticleService articleService;
+
     //期望此操作在线程池执行，不影响原有的主线程
     //这里线程池不了解可以去看JUC并发编程
     @Async("taskExecutor")

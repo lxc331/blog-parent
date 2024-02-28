@@ -7,8 +7,10 @@ import com.example.blog.dao.pojo.Comment;
 import com.example.blog.dao.pojo.SysUser;
 import com.example.blog.service.CommentsService;
 import com.example.blog.service.SysUserService;
-import com.example.blog.service.ThreadService;
+import com.example.blog.service.threadpoll.ThreadService;
+import com.example.blog.service.threadpoll.UpdateCacheThread;
 import com.example.blog.utils.UserThreadLocal;
+import com.example.blog.vo.ArticleMessage;
 import com.example.blog.vo.CommentVo;
 import com.example.blog.vo.Result;
 import com.example.blog.vo.UserVo;
@@ -30,6 +32,8 @@ public class CommentsServiceImpl implements CommentsService {
     private ThreadService threadService;
     @Autowired
     private ArticleMapper articleMapper;
+    @Autowired
+    private UpdateCacheThread updateCacheThread;
 
 
     @Override
@@ -78,8 +82,13 @@ public class CommentsServiceImpl implements CommentsService {
         //***** 更新 增加了此次接口的 耗时 如果一旦更新出问题，不能影响 查看文章的操作
         //线程池  可以把更新操作 扔到线程池中去执行，和主线程就不相关了
         threadService.updateArticleCommentCount(articleMapper,articleMapper.selectById(comment.getArticleId()));
+        //写操作需要更新文章评论数缓存
+        ArticleMessage articleMessage = new ArticleMessage();
+        articleMessage.setArticleId(comment.getArticleId());
+        updateCacheThread.updateArticleCache(articleMessage);
 
-        return Result.success(null);
+        CommentVo commentVo = copy(comment);
+        return Result.success(commentVo);
     }
 
     //对list表中的comment进行判断

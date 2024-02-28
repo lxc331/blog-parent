@@ -7,7 +7,7 @@ import java.util.concurrent.ConcurrentHashMap;
 
 import javax.websocket.Session;
 
-import com.example.blog.chat.po.User;
+import com.example.blog.chat.pojo.User;
 import com.example.blog.chat.service.LoginService;
 import com.example.blog.chat.service.WebSocketServer;
 import org.springframework.beans.factory.annotation.Autowired;

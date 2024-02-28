@@ -63,6 +63,7 @@
               <template slot="title">
                 <img class="me-header-picture" :src="user.avatar"/>
               </template>
+              <el-menu-item text-color="#5FB878">当前用户：{{user.name}}</el-menu-item>
               <el-menu-item index @click="enter_chatroom"><i class="el-icon-back"></i>进入聊天室</el-menu-item>
               <el-menu-item index @click="logout"><i class="el-icon-back"></i>退出</el-menu-item>
             </el-submenu>
@@ -79,6 +80,8 @@
   import {searchArticle} from '@/api/article'
   export default {
     name: 'BaseHeader',
+    components: {},
+
     props: {
       activeIndex: String,
       simple: {
@@ -96,8 +99,9 @@
       user() {
         let login = this.$store.state.account.length != 0
         let avatar = this.$store.state.avatar
+        let name = this.$store.state.name
         return {
-          login, avatar
+          login, avatar, name
         }
       }
     },
@@ -105,7 +109,6 @@
       enter_chatroom() {
         let that = this
         this.$store.dispatch('enter_chatroom').then(() => {
-          this.$router.push({path: '/'})
         }).catch((error) => {
           if (error !== 'error') {
             that.$message({message: error, type: 'error', showClose: true});

@@ -30,10 +30,11 @@ public class CacheAspect {
     @Around("pt()")
     public Object around(ProceedingJoinPoint pjp){
         try {
+            //它代表了目标方法或连接点（JoinPoint(切点)）的签名。Signature 提供了关于被通知（advised）方法的信息，如方法名、参数类型等
             Signature signature = pjp.getSignature();
-            //类名
+            //它代表了目标方法或连接点（JoinPoint(切点)）的类名
             String className = pjp.getTarget().getClass().getSimpleName();
-            //调用的方法名
+            ////它代表了目标方法或连接点（JoinPoint(切点)）调用的方法名
             String methodName = signature.getName();
 
 
@@ -53,6 +54,7 @@ public class CacheAspect {
                 //加密 以防出现key过长以及字符转义获取不到的情况
                 params = DigestUtils.md5Hex(params);
             }
+            //获得方法体(方法对象)
             Method method = pjp.getSignature().getDeclaringType().getMethod(methodName, parameterTypes);
             //获取Cache注解
             Cache annotation = method.getAnnotation(Cache.class);
@@ -61,15 +63,17 @@ public class CacheAspect {
             //缓存名称
             String name = annotation.name();
             //先从redis获取
-            String redisKey = name + "::" + className+"::"+methodName+"::"+params;
+            String redisKey = name+"::"+className+"::"+methodName+"::"+params;
             String redisValue = redisTemplate.opsForValue().get(redisKey);
             if (StringUtils.isNotEmpty(redisValue)){
-                log.info("命中缓存~~~,{},{}",className,methodName);
+                log.info("命中缓存~~~,{},{},{}",name,className,methodName);
                 return JSON.parseObject(redisValue, Result.class);
             }
+            // 实际执行目标方法(proceed是执行方法的返回对象)，在这之前是前置逻辑，在这之后是后置逻辑
             Object proceed = pjp.proceed();
+
             redisTemplate.opsForValue().set(redisKey,JSON.toJSONString(proceed), Duration.ofMillis(expire));
-            log.info("存入缓存~~~ {},{}",className,methodName);
+            log.info("存入缓存~~~ {},{},{}",name,className,methodName);
             return proceed;
         } catch (Throwable throwable) {
             throwable.printStackTrace();

@@ -21,7 +21,7 @@ public class QiniuUtils  {
     @Value("xqLbHFP150g3APkPWotpkTsC3E4DNizkLrhN230v")
     private  String accessSecretKey;
 
-    public  boolean upload(MultipartFile file, String fileName){
+    public boolean upload(MultipartFile file, String fileName){
 
         //构造一个带指定 Region 对象的配置类
         Configuration cfg = new Configuration(Region.huadong());
