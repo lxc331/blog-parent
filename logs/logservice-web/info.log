@@ -2672,3 +2672,549 @@ Tomcat started on port(s): 8890 (http) with context path ''
 Started BlogChat in 3.619 seconds (JVM running for 6.092)
 [2024/02/27 20:37:43780][INFO][LOGSERVICE][日志系统][org.springframework.scheduling.concurrent.ExecutorConfigurationSupport.shutdown(ExecutorConfigurationSupport.java:218)]
 Shutting down ExecutorService 'applicationTaskExecutor'
+[2024/03/06 20:40:52258][INFO][LOGSERVICE][日志系统][org.springframework.boot.StartupInfoLogger.logStarting(StartupInfoLogger.java:55)]
+Starting BlogChat on LAPTOP-P2VSRQEI with PID 30912 (D:\Source Code\IdeaProjects\blog-parent\blog-chat\target\classes started by 86132 in D:\Source Code\IdeaProjects\blog-parent)
+[2024/03/06 20:40:52378][INFO][LOGSERVICE][日志系统][org.springframework.boot.SpringApplication.logStartupProfileInfo(SpringApplication.java:651)]
+No active profile set, falling back to default profiles: default
+[2024/03/06 20:40:52481][INFO][LOGSERVICE][日志系统][org.springframework.boot.logging.DeferredLog.logTo(DeferredLog.java:225)]
+Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+[2024/03/06 20:40:52482][INFO][LOGSERVICE][日志系统][org.springframework.boot.logging.DeferredLog.logTo(DeferredLog.java:225)]
+For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+[2024/03/06 20:40:53813][INFO][LOGSERVICE][日志系统][org.springframework.data.repository.config.RepositoryConfigurationDelegate.multipleStoresDetected(RepositoryConfigurationDelegate.java:249)]
+Multiple Spring Data modules found, entering strict repository configuration mode!
+[2024/03/06 20:40:53821][INFO][LOGSERVICE][日志系统][org.springframework.data.repository.config.RepositoryConfigurationDelegate.registerRepositoriesIn(RepositoryConfigurationDelegate.java:127)]
+Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+[2024/03/06 20:40:53888][INFO][LOGSERVICE][日志系统][org.springframework.data.repository.config.RepositoryConfigurationDelegate.registerRepositoriesIn(RepositoryConfigurationDelegate.java:187)]
+Finished Spring Data repository scanning in 33ms. Found 0 Redis repository interfaces.
+[2024/03/06 20:40:55172][INFO][LOGSERVICE][日志系统][org.springframework.boot.web.embedded.tomcat.TomcatWebServer.initialize(TomcatWebServer.java:108)]
+Tomcat initialized with port(s): 8890 (http)
+[2024/03/06 20:40:55190][INFO][LOGSERVICE][日志系统][org.apache.juli.logging.DirectJDKLog.log(DirectJDKLog.java:173)]
+Initializing ProtocolHandler ["http-nio-8890"]
+[2024/03/06 20:40:55191][INFO][LOGSERVICE][日志系统][org.apache.juli.logging.DirectJDKLog.log(DirectJDKLog.java:173)]
+Starting service [Tomcat]
+[2024/03/06 20:40:55192][INFO][LOGSERVICE][日志系统][org.apache.juli.logging.DirectJDKLog.log(DirectJDKLog.java:173)]
+Starting Servlet engine: [Apache Tomcat/9.0.41]
+[2024/03/06 20:40:55469][INFO][LOGSERVICE][日志系统][org.apache.juli.logging.DirectJDKLog.log(DirectJDKLog.java:173)]
+Initializing Spring embedded WebApplicationContext
+[2024/03/06 20:40:55471][INFO][LOGSERVICE][日志系统][org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.prepareWebApplicationContext(ServletWebServerApplicationContext.java:285)]
+Root WebApplicationContext: initialization completed in 2987 ms
+[2024/03/06 20:40:58822][INFO][LOGSERVICE][日志系统][org.springframework.scheduling.concurrent.ExecutorConfigurationSupport.initialize(ExecutorConfigurationSupport.java:181)]
+Initializing ExecutorService 'applicationTaskExecutor'
+[2024/03/06 20:41:00095][INFO][LOGSERVICE][日志系统][org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer.startServer(OptionalLiveReloadServer.java:58)]
+LiveReload server is running on port 35729
+[2024/03/06 20:41:00164][INFO][LOGSERVICE][日志系统][org.apache.juli.logging.DirectJDKLog.log(DirectJDKLog.java:173)]
+Starting ProtocolHandler ["http-nio-8890"]
+[2024/03/06 20:41:00216][INFO][LOGSERVICE][日志系统][org.springframework.boot.web.embedded.tomcat.TomcatWebServer.start(TomcatWebServer.java:220)]
+Tomcat started on port(s): 8890 (http) with context path ''
+[2024/03/06 20:41:00239][INFO][LOGSERVICE][日志系统][org.springframework.boot.StartupInfoLogger.logStarted(StartupInfoLogger.java:61)]
+Started BlogChat in 8.834 seconds (JVM running for 12.947)
+[2024/03/06 20:42:03442][INFO][LOGSERVICE][日志系统][org.apache.juli.logging.DirectJDKLog.log(DirectJDKLog.java:173)]
+Initializing Spring DispatcherServlet 'dispatcherServlet'
+[2024/03/06 20:42:03442][INFO][LOGSERVICE][日志系统][org.springframework.web.servlet.FrameworkServlet.initServletBean(FrameworkServlet.java:525)]
+Initializing Servlet 'dispatcherServlet'
+[2024/03/06 20:42:03454][INFO][LOGSERVICE][日志系统][org.springframework.web.servlet.FrameworkServlet.initServletBean(FrameworkServlet.java:547)]
+Completed initialization in 11 ms
+[2024/03/06 20:43:41268][INFO][LOGSERVICE][日志系统][com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:110)]
+HikariPool-1 - Starting...
+[2024/03/06 20:43:43058][INFO][LOGSERVICE][日志系统][com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:123)]
+HikariPool-1 - Start completed.
+[2024/03/06 21:26:26482][INFO][LOGSERVICE][日志系统][org.springframework.scheduling.concurrent.ExecutorConfigurationSupport.shutdown(ExecutorConfigurationSupport.java:218)]
+Shutting down ExecutorService 'applicationTaskExecutor'
+[2024/03/06 21:26:26489][INFO][LOGSERVICE][日志系统][com.zaxxer.hikari.HikariDataSource.close(HikariDataSource.java:350)]
+HikariPool-1 - Shutdown initiated...
+[2024/03/06 21:26:26527][INFO][LOGSERVICE][日志系统][com.zaxxer.hikari.HikariDataSource.close(HikariDataSource.java:352)]
+HikariPool-1 - Shutdown completed.
+[2024/03/06 21:27:57629][INFO][LOGSERVICE][日志系统][org.springframework.boot.StartupInfoLogger.logStarting(StartupInfoLogger.java:55)]
+Starting BlogChat on LAPTOP-P2VSRQEI with PID 30352 (D:\Source Code\IdeaProjects\blog-parent\blog-chat\target\classes started by 86132 in D:\Source Code\IdeaProjects\blog-parent)
+[2024/03/06 21:27:57652][INFO][LOGSERVICE][日志系统][org.springframework.boot.SpringApplication.logStartupProfileInfo(SpringApplication.java:651)]
+No active profile set, falling back to default profiles: default
+[2024/03/06 21:27:57749][INFO][LOGSERVICE][日志系统][org.springframework.boot.logging.DeferredLog.logTo(DeferredLog.java:225)]
+Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+[2024/03/06 21:27:57750][INFO][LOGSERVICE][日志系统][org.springframework.boot.logging.DeferredLog.logTo(DeferredLog.java:225)]
+For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+[2024/03/06 21:27:59074][INFO][LOGSERVICE][日志系统][org.springframework.data.repository.config.RepositoryConfigurationDelegate.multipleStoresDetected(RepositoryConfigurationDelegate.java:249)]
+Multiple Spring Data modules found, entering strict repository configuration mode!
+[2024/03/06 21:27:59081][INFO][LOGSERVICE][日志系统][org.springframework.data.repository.config.RepositoryConfigurationDelegate.registerRepositoriesIn(RepositoryConfigurationDelegate.java:127)]
+Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+[2024/03/06 21:27:59144][INFO][LOGSERVICE][日志系统][org.springframework.data.repository.config.RepositoryConfigurationDelegate.registerRepositoriesIn(RepositoryConfigurationDelegate.java:187)]
+Finished Spring Data repository scanning in 33ms. Found 0 Redis repository interfaces.
+[2024/03/06 21:28:00643][INFO][LOGSERVICE][日志系统][org.springframework.boot.web.embedded.tomcat.TomcatWebServer.initialize(TomcatWebServer.java:108)]
+Tomcat initialized with port(s): 8890 (http)
+[2024/03/06 21:28:00670][INFO][LOGSERVICE][日志系统][org.apache.juli.logging.DirectJDKLog.log(DirectJDKLog.java:173)]
+Initializing ProtocolHandler ["http-nio-8890"]
+[2024/03/06 21:28:00672][INFO][LOGSERVICE][日志系统][org.apache.juli.logging.DirectJDKLog.log(DirectJDKLog.java:173)]
+Starting service [Tomcat]
+[2024/03/06 21:28:00673][INFO][LOGSERVICE][日志系统][org.apache.juli.logging.DirectJDKLog.log(DirectJDKLog.java:173)]
+Starting Servlet engine: [Apache Tomcat/9.0.41]
+[2024/03/06 21:28:01058][INFO][LOGSERVICE][日志系统][org.apache.juli.logging.DirectJDKLog.log(DirectJDKLog.java:173)]
+Initializing Spring embedded WebApplicationContext
+[2024/03/06 21:28:01059][INFO][LOGSERVICE][日志系统][org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.prepareWebApplicationContext(ServletWebServerApplicationContext.java:285)]
+Root WebApplicationContext: initialization completed in 3308 ms
+[2024/03/06 21:28:04456][INFO][LOGSERVICE][日志系统][org.springframework.scheduling.concurrent.ExecutorConfigurationSupport.initialize(ExecutorConfigurationSupport.java:181)]
+Initializing ExecutorService 'applicationTaskExecutor'
+[2024/03/06 21:28:05881][INFO][LOGSERVICE][日志系统][org.apache.juli.logging.DirectJDKLog.log(DirectJDKLog.java:173)]
+Starting ProtocolHandler ["http-nio-8890"]
+[2024/03/06 21:28:05937][INFO][LOGSERVICE][日志系统][org.springframework.boot.web.embedded.tomcat.TomcatWebServer.start(TomcatWebServer.java:220)]
+Tomcat started on port(s): 8890 (http) with context path ''
+[2024/03/06 21:28:05962][INFO][LOGSERVICE][日志系统][org.springframework.boot.StartupInfoLogger.logStarted(StartupInfoLogger.java:61)]
+Started BlogChat in 9.182 seconds (JVM running for 13.326)
+[2024/03/06 21:30:00314][INFO][LOGSERVICE][日志系统][org.apache.juli.logging.DirectJDKLog.log(DirectJDKLog.java:173)]
+Initializing Spring DispatcherServlet 'dispatcherServlet'
+[2024/03/06 21:30:00315][INFO][LOGSERVICE][日志系统][org.springframework.web.servlet.FrameworkServlet.initServletBean(FrameworkServlet.java:525)]
+Initializing Servlet 'dispatcherServlet'
+[2024/03/06 21:30:00329][INFO][LOGSERVICE][日志系统][org.springframework.web.servlet.FrameworkServlet.initServletBean(FrameworkServlet.java:547)]
+Completed initialization in 14 ms
+[2024/03/06 21:31:16255][INFO][LOGSERVICE][日志系统][org.springframework.scheduling.concurrent.ExecutorConfigurationSupport.shutdown(ExecutorConfigurationSupport.java:218)]
+Shutting down ExecutorService 'applicationTaskExecutor'
+[2024/03/06 21:31:29967][INFO][LOGSERVICE][日志系统][org.springframework.boot.StartupInfoLogger.logStarting(StartupInfoLogger.java:55)]
+Starting BlogChat on LAPTOP-P2VSRQEI with PID 27548 (D:\Source Code\IdeaProjects\blog-parent\blog-chat\target\classes started by 86132 in D:\Source Code\IdeaProjects\blog-parent)
+[2024/03/06 21:31:30044][INFO][LOGSERVICE][日志系统][org.springframework.boot.SpringApplication.logStartupProfileInfo(SpringApplication.java:651)]
+No active profile set, falling back to default profiles: default
+[2024/03/06 21:31:30136][INFO][LOGSERVICE][日志系统][org.springframework.boot.logging.DeferredLog.logTo(DeferredLog.java:225)]
+Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+[2024/03/06 21:31:30137][INFO][LOGSERVICE][日志系统][org.springframework.boot.logging.DeferredLog.logTo(DeferredLog.java:225)]
+For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+[2024/03/06 21:31:31350][INFO][LOGSERVICE][日志系统][org.springframework.data.repository.config.RepositoryConfigurationDelegate.multipleStoresDetected(RepositoryConfigurationDelegate.java:249)]
+Multiple Spring Data modules found, entering strict repository configuration mode!
+[2024/03/06 21:31:31357][INFO][LOGSERVICE][日志系统][org.springframework.data.repository.config.RepositoryConfigurationDelegate.registerRepositoriesIn(RepositoryConfigurationDelegate.java:127)]
+Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+[2024/03/06 21:31:31428][INFO][LOGSERVICE][日志系统][org.springframework.data.repository.config.RepositoryConfigurationDelegate.registerRepositoriesIn(RepositoryConfigurationDelegate.java:187)]
+Finished Spring Data repository scanning in 36ms. Found 0 Redis repository interfaces.
+[2024/03/06 21:31:32752][INFO][LOGSERVICE][日志系统][org.springframework.boot.web.embedded.tomcat.TomcatWebServer.initialize(TomcatWebServer.java:108)]
+Tomcat initialized with port(s): 8890 (http)
+[2024/03/06 21:31:32774][INFO][LOGSERVICE][日志系统][org.apache.juli.logging.DirectJDKLog.log(DirectJDKLog.java:173)]
+Initializing ProtocolHandler ["http-nio-8890"]
+[2024/03/06 21:31:32776][INFO][LOGSERVICE][日志系统][org.apache.juli.logging.DirectJDKLog.log(DirectJDKLog.java:173)]
+Starting service [Tomcat]
+[2024/03/06 21:31:32777][INFO][LOGSERVICE][日志系统][org.apache.juli.logging.DirectJDKLog.log(DirectJDKLog.java:173)]
+Starting Servlet engine: [Apache Tomcat/9.0.41]
+[2024/03/06 21:31:33086][INFO][LOGSERVICE][日志系统][org.apache.juli.logging.DirectJDKLog.log(DirectJDKLog.java:173)]
+Initializing Spring embedded WebApplicationContext
+[2024/03/06 21:31:33087][INFO][LOGSERVICE][日志系统][org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.prepareWebApplicationContext(ServletWebServerApplicationContext.java:285)]
+Root WebApplicationContext: initialization completed in 2949 ms
+[2024/03/06 21:31:36777][INFO][LOGSERVICE][日志系统][org.springframework.scheduling.concurrent.ExecutorConfigurationSupport.initialize(ExecutorConfigurationSupport.java:181)]
+Initializing ExecutorService 'applicationTaskExecutor'
+[2024/03/06 21:31:38028][INFO][LOGSERVICE][日志系统][org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer.startServer(OptionalLiveReloadServer.java:58)]
+LiveReload server is running on port 35729
+[2024/03/06 21:31:38091][INFO][LOGSERVICE][日志系统][org.apache.juli.logging.DirectJDKLog.log(DirectJDKLog.java:173)]
+Starting ProtocolHandler ["http-nio-8890"]
+[2024/03/06 21:31:38133][INFO][LOGSERVICE][日志系统][org.springframework.boot.web.embedded.tomcat.TomcatWebServer.start(TomcatWebServer.java:220)]
+Tomcat started on port(s): 8890 (http) with context path ''
+[2024/03/06 21:31:38156][INFO][LOGSERVICE][日志系统][org.springframework.boot.StartupInfoLogger.logStarted(StartupInfoLogger.java:61)]
+Started BlogChat in 8.924 seconds (JVM running for 13.003)
+[2024/03/06 21:31:48010][INFO][LOGSERVICE][日志系统][org.apache.juli.logging.DirectJDKLog.log(DirectJDKLog.java:173)]
+Initializing Spring DispatcherServlet 'dispatcherServlet'
+[2024/03/06 21:31:48011][INFO][LOGSERVICE][日志系统][org.springframework.web.servlet.FrameworkServlet.initServletBean(FrameworkServlet.java:525)]
+Initializing Servlet 'dispatcherServlet'
+[2024/03/06 21:31:48027][INFO][LOGSERVICE][日志系统][org.springframework.web.servlet.FrameworkServlet.initServletBean(FrameworkServlet.java:547)]
+Completed initialization in 14 ms
+[2024/03/06 21:31:48130][INFO][LOGSERVICE][日志系统][com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:110)]
+HikariPool-1 - Starting...
+[2024/03/06 21:31:49901][INFO][LOGSERVICE][日志系统][com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:123)]
+HikariPool-1 - Start completed.
+[2024/03/06 21:32:48032][INFO][LOGSERVICE][日志系统][org.springframework.scheduling.concurrent.ExecutorConfigurationSupport.shutdown(ExecutorConfigurationSupport.java:218)]
+Shutting down ExecutorService 'applicationTaskExecutor'
+[2024/03/06 21:32:48033][INFO][LOGSERVICE][日志系统][com.zaxxer.hikari.HikariDataSource.close(HikariDataSource.java:350)]
+HikariPool-1 - Shutdown initiated...
+[2024/03/06 21:32:48049][INFO][LOGSERVICE][日志系统][com.zaxxer.hikari.HikariDataSource.close(HikariDataSource.java:352)]
+HikariPool-1 - Shutdown completed.
+[2024/03/06 21:33:01650][INFO][LOGSERVICE][日志系统][org.springframework.boot.StartupInfoLogger.logStarting(StartupInfoLogger.java:55)]
+Starting BlogChat on LAPTOP-P2VSRQEI with PID 7408 (D:\Source Code\IdeaProjects\blog-parent\blog-chat\target\classes started by 86132 in D:\Source Code\IdeaProjects\blog-parent)
+[2024/03/06 21:33:01724][INFO][LOGSERVICE][日志系统][org.springframework.boot.SpringApplication.logStartupProfileInfo(SpringApplication.java:651)]
+No active profile set, falling back to default profiles: default
+[2024/03/06 21:33:01808][INFO][LOGSERVICE][日志系统][org.springframework.boot.logging.DeferredLog.logTo(DeferredLog.java:225)]
+Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+[2024/03/06 21:33:01809][INFO][LOGSERVICE][日志系统][org.springframework.boot.logging.DeferredLog.logTo(DeferredLog.java:225)]
+For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+[2024/03/06 21:33:03073][INFO][LOGSERVICE][日志系统][org.springframework.data.repository.config.RepositoryConfigurationDelegate.multipleStoresDetected(RepositoryConfigurationDelegate.java:249)]
+Multiple Spring Data modules found, entering strict repository configuration mode!
+[2024/03/06 21:33:03080][INFO][LOGSERVICE][日志系统][org.springframework.data.repository.config.RepositoryConfigurationDelegate.registerRepositoriesIn(RepositoryConfigurationDelegate.java:127)]
+Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+[2024/03/06 21:33:03150][INFO][LOGSERVICE][日志系统][org.springframework.data.repository.config.RepositoryConfigurationDelegate.registerRepositoriesIn(RepositoryConfigurationDelegate.java:187)]
+Finished Spring Data repository scanning in 35ms. Found 0 Redis repository interfaces.
+[2024/03/06 21:33:04323][INFO][LOGSERVICE][日志系统][org.springframework.boot.web.embedded.tomcat.TomcatWebServer.initialize(TomcatWebServer.java:108)]
+Tomcat initialized with port(s): 8890 (http)
+[2024/03/06 21:33:04339][INFO][LOGSERVICE][日志系统][org.apache.juli.logging.DirectJDKLog.log(DirectJDKLog.java:173)]
+Initializing ProtocolHandler ["http-nio-8890"]
+[2024/03/06 21:33:04340][INFO][LOGSERVICE][日志系统][org.apache.juli.logging.DirectJDKLog.log(DirectJDKLog.java:173)]
+Starting service [Tomcat]
+[2024/03/06 21:33:04341][INFO][LOGSERVICE][日志系统][org.apache.juli.logging.DirectJDKLog.log(DirectJDKLog.java:173)]
+Starting Servlet engine: [Apache Tomcat/9.0.41]
+[2024/03/06 21:33:04584][INFO][LOGSERVICE][日志系统][org.apache.juli.logging.DirectJDKLog.log(DirectJDKLog.java:173)]
+Initializing Spring embedded WebApplicationContext
+[2024/03/06 21:33:04585][INFO][LOGSERVICE][日志系统][org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.prepareWebApplicationContext(ServletWebServerApplicationContext.java:285)]
+Root WebApplicationContext: initialization completed in 2775 ms
+[2024/03/06 21:33:07845][INFO][LOGSERVICE][日志系统][org.springframework.scheduling.concurrent.ExecutorConfigurationSupport.initialize(ExecutorConfigurationSupport.java:181)]
+Initializing ExecutorService 'applicationTaskExecutor'
+[2024/03/06 21:33:08923][INFO][LOGSERVICE][日志系统][org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer.startServer(OptionalLiveReloadServer.java:58)]
+LiveReload server is running on port 35729
+[2024/03/06 21:33:08982][INFO][LOGSERVICE][日志系统][org.apache.juli.logging.DirectJDKLog.log(DirectJDKLog.java:173)]
+Starting ProtocolHandler ["http-nio-8890"]
+[2024/03/06 21:33:09030][INFO][LOGSERVICE][日志系统][org.springframework.boot.web.embedded.tomcat.TomcatWebServer.start(TomcatWebServer.java:220)]
+Tomcat started on port(s): 8890 (http) with context path ''
+[2024/03/06 21:33:09051][INFO][LOGSERVICE][日志系统][org.springframework.boot.StartupInfoLogger.logStarted(StartupInfoLogger.java:61)]
+Started BlogChat in 8.087 seconds (JVM running for 12.003)
+[2024/03/06 21:33:09183][INFO][LOGSERVICE][日志系统][org.apache.juli.logging.DirectJDKLog.log(DirectJDKLog.java:173)]
+Initializing Spring DispatcherServlet 'dispatcherServlet'
+[2024/03/06 21:33:09183][INFO][LOGSERVICE][日志系统][org.springframework.web.servlet.FrameworkServlet.initServletBean(FrameworkServlet.java:525)]
+Initializing Servlet 'dispatcherServlet'
+[2024/03/06 21:33:09197][INFO][LOGSERVICE][日志系统][org.springframework.web.servlet.FrameworkServlet.initServletBean(FrameworkServlet.java:547)]
+Completed initialization in 13 ms
+[2024/03/06 21:33:31428][INFO][LOGSERVICE][日志系统][com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:110)]
+HikariPool-1 - Starting...
+[2024/03/06 21:33:33107][INFO][LOGSERVICE][日志系统][com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:123)]
+HikariPool-1 - Start completed.
+[2024/03/06 21:34:45392][INFO][LOGSERVICE][日志系统][org.springframework.scheduling.concurrent.ExecutorConfigurationSupport.shutdown(ExecutorConfigurationSupport.java:218)]
+Shutting down ExecutorService 'applicationTaskExecutor'
+[2024/03/06 21:34:45393][INFO][LOGSERVICE][日志系统][com.zaxxer.hikari.HikariDataSource.close(HikariDataSource.java:350)]
+HikariPool-1 - Shutdown initiated...
+[2024/03/06 21:34:45409][INFO][LOGSERVICE][日志系统][com.zaxxer.hikari.HikariDataSource.close(HikariDataSource.java:352)]
+HikariPool-1 - Shutdown completed.
+[2024/03/06 21:34:59167][INFO][LOGSERVICE][日志系统][org.springframework.boot.StartupInfoLogger.logStarting(StartupInfoLogger.java:55)]
+Starting BlogChat on LAPTOP-P2VSRQEI with PID 1416 (D:\Source Code\IdeaProjects\blog-parent\blog-chat\target\classes started by 86132 in D:\Source Code\IdeaProjects\blog-parent)
+[2024/03/06 21:34:59240][INFO][LOGSERVICE][日志系统][org.springframework.boot.SpringApplication.logStartupProfileInfo(SpringApplication.java:651)]
+No active profile set, falling back to default profiles: default
+[2024/03/06 21:34:59327][INFO][LOGSERVICE][日志系统][org.springframework.boot.logging.DeferredLog.logTo(DeferredLog.java:225)]
+Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+[2024/03/06 21:34:59328][INFO][LOGSERVICE][日志系统][org.springframework.boot.logging.DeferredLog.logTo(DeferredLog.java:225)]
+For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+[2024/03/06 21:35:00511][INFO][LOGSERVICE][日志系统][org.springframework.data.repository.config.RepositoryConfigurationDelegate.multipleStoresDetected(RepositoryConfigurationDelegate.java:249)]
+Multiple Spring Data modules found, entering strict repository configuration mode!
+[2024/03/06 21:35:00517][INFO][LOGSERVICE][日志系统][org.springframework.data.repository.config.RepositoryConfigurationDelegate.registerRepositoriesIn(RepositoryConfigurationDelegate.java:127)]
+Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+[2024/03/06 21:35:00581][INFO][LOGSERVICE][日志系统][org.springframework.data.repository.config.RepositoryConfigurationDelegate.registerRepositoriesIn(RepositoryConfigurationDelegate.java:187)]
+Finished Spring Data repository scanning in 32ms. Found 0 Redis repository interfaces.
+[2024/03/06 21:35:01762][INFO][LOGSERVICE][日志系统][org.springframework.boot.web.embedded.tomcat.TomcatWebServer.initialize(TomcatWebServer.java:108)]
+Tomcat initialized with port(s): 8890 (http)
+[2024/03/06 21:35:01780][INFO][LOGSERVICE][日志系统][org.apache.juli.logging.DirectJDKLog.log(DirectJDKLog.java:173)]
+Initializing ProtocolHandler ["http-nio-8890"]
+[2024/03/06 21:35:01781][INFO][LOGSERVICE][日志系统][org.apache.juli.logging.DirectJDKLog.log(DirectJDKLog.java:173)]
+Starting service [Tomcat]
+[2024/03/06 21:35:01782][INFO][LOGSERVICE][日志系统][org.apache.juli.logging.DirectJDKLog.log(DirectJDKLog.java:173)]
+Starting Servlet engine: [Apache Tomcat/9.0.41]
+[2024/03/06 21:35:02033][INFO][LOGSERVICE][日志系统][org.apache.juli.logging.DirectJDKLog.log(DirectJDKLog.java:173)]
+Initializing Spring embedded WebApplicationContext
+[2024/03/06 21:35:02034][INFO][LOGSERVICE][日志系统][org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.prepareWebApplicationContext(ServletWebServerApplicationContext.java:285)]
+Root WebApplicationContext: initialization completed in 2705 ms
+[2024/03/06 21:35:05054][INFO][LOGSERVICE][日志系统][org.springframework.scheduling.concurrent.ExecutorConfigurationSupport.initialize(ExecutorConfigurationSupport.java:181)]
+Initializing ExecutorService 'applicationTaskExecutor'
+[2024/03/06 21:35:06169][INFO][LOGSERVICE][日志系统][org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer.startServer(OptionalLiveReloadServer.java:58)]
+LiveReload server is running on port 35729
+[2024/03/06 21:35:06242][INFO][LOGSERVICE][日志系统][org.apache.juli.logging.DirectJDKLog.log(DirectJDKLog.java:173)]
+Starting ProtocolHandler ["http-nio-8890"]
+[2024/03/06 21:35:06287][INFO][LOGSERVICE][日志系统][org.springframework.boot.web.embedded.tomcat.TomcatWebServer.start(TomcatWebServer.java:220)]
+Tomcat started on port(s): 8890 (http) with context path ''
+[2024/03/06 21:35:06310][INFO][LOGSERVICE][日志系统][org.springframework.boot.StartupInfoLogger.logStarted(StartupInfoLogger.java:61)]
+Started BlogChat in 7.846 seconds (JVM running for 11.479)
+[2024/03/06 21:35:09798][INFO][LOGSERVICE][日志系统][org.apache.juli.logging.DirectJDKLog.log(DirectJDKLog.java:173)]
+Initializing Spring DispatcherServlet 'dispatcherServlet'
+[2024/03/06 21:35:09799][INFO][LOGSERVICE][日志系统][org.springframework.web.servlet.FrameworkServlet.initServletBean(FrameworkServlet.java:525)]
+Initializing Servlet 'dispatcherServlet'
+[2024/03/06 21:35:09813][INFO][LOGSERVICE][日志系统][org.springframework.web.servlet.FrameworkServlet.initServletBean(FrameworkServlet.java:547)]
+Completed initialization in 13 ms
+[2024/03/06 21:35:13386][INFO][LOGSERVICE][日志系统][com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:110)]
+HikariPool-1 - Starting...
+[2024/03/06 21:35:15027][INFO][LOGSERVICE][日志系统][com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:123)]
+HikariPool-1 - Start completed.
+[2024/03/06 21:39:32752][INFO][LOGSERVICE][日志系统][org.springframework.scheduling.concurrent.ExecutorConfigurationSupport.shutdown(ExecutorConfigurationSupport.java:218)]
+Shutting down ExecutorService 'applicationTaskExecutor'
+[2024/03/06 21:39:32754][INFO][LOGSERVICE][日志系统][com.zaxxer.hikari.HikariDataSource.close(HikariDataSource.java:350)]
+HikariPool-1 - Shutdown initiated...
+[2024/03/06 21:39:32778][INFO][LOGSERVICE][日志系统][com.zaxxer.hikari.HikariDataSource.close(HikariDataSource.java:352)]
+HikariPool-1 - Shutdown completed.
+[2024/03/06 21:39:46332][INFO][LOGSERVICE][日志系统][org.springframework.boot.StartupInfoLogger.logStarting(StartupInfoLogger.java:55)]
+Starting BlogChat on LAPTOP-P2VSRQEI with PID 11360 (D:\Source Code\IdeaProjects\blog-parent\blog-chat\target\classes started by 86132 in D:\Source Code\IdeaProjects\blog-parent)
+[2024/03/06 21:39:46415][INFO][LOGSERVICE][日志系统][org.springframework.boot.SpringApplication.logStartupProfileInfo(SpringApplication.java:651)]
+No active profile set, falling back to default profiles: default
+[2024/03/06 21:39:46507][INFO][LOGSERVICE][日志系统][org.springframework.boot.logging.DeferredLog.logTo(DeferredLog.java:225)]
+Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+[2024/03/06 21:39:46508][INFO][LOGSERVICE][日志系统][org.springframework.boot.logging.DeferredLog.logTo(DeferredLog.java:225)]
+For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+[2024/03/06 21:39:47688][INFO][LOGSERVICE][日志系统][org.springframework.data.repository.config.RepositoryConfigurationDelegate.multipleStoresDetected(RepositoryConfigurationDelegate.java:249)]
+Multiple Spring Data modules found, entering strict repository configuration mode!
+[2024/03/06 21:39:47694][INFO][LOGSERVICE][日志系统][org.springframework.data.repository.config.RepositoryConfigurationDelegate.registerRepositoriesIn(RepositoryConfigurationDelegate.java:127)]
+Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+[2024/03/06 21:39:47754][INFO][LOGSERVICE][日志系统][org.springframework.data.repository.config.RepositoryConfigurationDelegate.registerRepositoriesIn(RepositoryConfigurationDelegate.java:187)]
+Finished Spring Data repository scanning in 32ms. Found 0 Redis repository interfaces.
+[2024/03/06 21:39:49026][INFO][LOGSERVICE][日志系统][org.springframework.boot.web.embedded.tomcat.TomcatWebServer.initialize(TomcatWebServer.java:108)]
+Tomcat initialized with port(s): 8890 (http)
+[2024/03/06 21:39:49044][INFO][LOGSERVICE][日志系统][org.apache.juli.logging.DirectJDKLog.log(DirectJDKLog.java:173)]
+Initializing ProtocolHandler ["http-nio-8890"]
+[2024/03/06 21:39:49045][INFO][LOGSERVICE][日志系统][org.apache.juli.logging.DirectJDKLog.log(DirectJDKLog.java:173)]
+Starting service [Tomcat]
+[2024/03/06 21:39:49045][INFO][LOGSERVICE][日志系统][org.apache.juli.logging.DirectJDKLog.log(DirectJDKLog.java:173)]
+Starting Servlet engine: [Apache Tomcat/9.0.41]
+[2024/03/06 21:39:49285][INFO][LOGSERVICE][日志系统][org.apache.juli.logging.DirectJDKLog.log(DirectJDKLog.java:173)]
+Initializing Spring embedded WebApplicationContext
+[2024/03/06 21:39:49286][INFO][LOGSERVICE][日志系统][org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.prepareWebApplicationContext(ServletWebServerApplicationContext.java:285)]
+Root WebApplicationContext: initialization completed in 2776 ms
+[2024/03/06 21:39:52336][INFO][LOGSERVICE][日志系统][org.springframework.scheduling.concurrent.ExecutorConfigurationSupport.initialize(ExecutorConfigurationSupport.java:181)]
+Initializing ExecutorService 'applicationTaskExecutor'
+[2024/03/06 21:39:53576][INFO][LOGSERVICE][日志系统][org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer.startServer(OptionalLiveReloadServer.java:58)]
+LiveReload server is running on port 35729
+[2024/03/06 21:39:53646][INFO][LOGSERVICE][日志系统][org.apache.juli.logging.DirectJDKLog.log(DirectJDKLog.java:173)]
+Starting ProtocolHandler ["http-nio-8890"]
+[2024/03/06 21:39:53705][INFO][LOGSERVICE][日志系统][org.springframework.boot.web.embedded.tomcat.TomcatWebServer.start(TomcatWebServer.java:220)]
+Tomcat started on port(s): 8890 (http) with context path ''
+[2024/03/06 21:39:53728][INFO][LOGSERVICE][日志系统][org.springframework.boot.StartupInfoLogger.logStarted(StartupInfoLogger.java:61)]
+Started BlogChat in 8.108 seconds (JVM running for 11.8)
+[2024/03/06 21:39:59003][INFO][LOGSERVICE][日志系统][org.apache.juli.logging.DirectJDKLog.log(DirectJDKLog.java:173)]
+Initializing Spring DispatcherServlet 'dispatcherServlet'
+[2024/03/06 21:39:59004][INFO][LOGSERVICE][日志系统][org.springframework.web.servlet.FrameworkServlet.initServletBean(FrameworkServlet.java:525)]
+Initializing Servlet 'dispatcherServlet'
+[2024/03/06 21:39:59018][INFO][LOGSERVICE][日志系统][org.springframework.web.servlet.FrameworkServlet.initServletBean(FrameworkServlet.java:547)]
+Completed initialization in 13 ms
+[2024/03/06 21:39:59116][INFO][LOGSERVICE][日志系统][com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:110)]
+HikariPool-1 - Starting...
+[2024/03/06 21:40:01062][INFO][LOGSERVICE][日志系统][com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:123)]
+HikariPool-1 - Start completed.
+[2024/03/06 21:41:09553][INFO][LOGSERVICE][日志系统][org.springframework.scheduling.concurrent.ExecutorConfigurationSupport.shutdown(ExecutorConfigurationSupport.java:218)]
+Shutting down ExecutorService 'applicationTaskExecutor'
+[2024/03/06 21:41:09555][INFO][LOGSERVICE][日志系统][com.zaxxer.hikari.HikariDataSource.close(HikariDataSource.java:350)]
+HikariPool-1 - Shutdown initiated...
+[2024/03/06 21:41:09575][INFO][LOGSERVICE][日志系统][com.zaxxer.hikari.HikariDataSource.close(HikariDataSource.java:352)]
+HikariPool-1 - Shutdown completed.
+[2024/03/06 21:41:18752][INFO][LOGSERVICE][日志系统][org.springframework.boot.StartupInfoLogger.logStarting(StartupInfoLogger.java:55)]
+Starting BlogChat on LAPTOP-P2VSRQEI with PID 336 (D:\Source Code\IdeaProjects\blog-parent\blog-chat\target\classes started by 86132 in D:\Source Code\IdeaProjects\blog-parent)
+[2024/03/06 21:41:18779][INFO][LOGSERVICE][日志系统][org.springframework.boot.SpringApplication.logStartupProfileInfo(SpringApplication.java:651)]
+No active profile set, falling back to default profiles: default
+[2024/03/06 21:41:18908][INFO][LOGSERVICE][日志系统][org.springframework.boot.logging.DeferredLog.logTo(DeferredLog.java:225)]
+Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+[2024/03/06 21:41:18909][INFO][LOGSERVICE][日志系统][org.springframework.boot.logging.DeferredLog.logTo(DeferredLog.java:225)]
+For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+[2024/03/06 21:41:20110][INFO][LOGSERVICE][日志系统][org.springframework.data.repository.config.RepositoryConfigurationDelegate.multipleStoresDetected(RepositoryConfigurationDelegate.java:249)]
+Multiple Spring Data modules found, entering strict repository configuration mode!
+[2024/03/06 21:41:20116][INFO][LOGSERVICE][日志系统][org.springframework.data.repository.config.RepositoryConfigurationDelegate.registerRepositoriesIn(RepositoryConfigurationDelegate.java:127)]
+Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+[2024/03/06 21:41:20182][INFO][LOGSERVICE][日志系统][org.springframework.data.repository.config.RepositoryConfigurationDelegate.registerRepositoriesIn(RepositoryConfigurationDelegate.java:187)]
+Finished Spring Data repository scanning in 37ms. Found 0 Redis repository interfaces.
+[2024/03/06 21:41:21480][INFO][LOGSERVICE][日志系统][org.springframework.boot.web.embedded.tomcat.TomcatWebServer.initialize(TomcatWebServer.java:108)]
+Tomcat initialized with port(s): 8890 (http)
+[2024/03/06 21:41:21498][INFO][LOGSERVICE][日志系统][org.apache.juli.logging.DirectJDKLog.log(DirectJDKLog.java:173)]
+Initializing ProtocolHandler ["http-nio-8890"]
+[2024/03/06 21:41:21499][INFO][LOGSERVICE][日志系统][org.apache.juli.logging.DirectJDKLog.log(DirectJDKLog.java:173)]
+Starting service [Tomcat]
+[2024/03/06 21:41:21500][INFO][LOGSERVICE][日志系统][org.apache.juli.logging.DirectJDKLog.log(DirectJDKLog.java:173)]
+Starting Servlet engine: [Apache Tomcat/9.0.41]
+[2024/03/06 21:41:21746][INFO][LOGSERVICE][日志系统][org.apache.juli.logging.DirectJDKLog.log(DirectJDKLog.java:173)]
+Initializing Spring embedded WebApplicationContext
+[2024/03/06 21:41:21747][INFO][LOGSERVICE][日志系统][org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.prepareWebApplicationContext(ServletWebServerApplicationContext.java:285)]
+Root WebApplicationContext: initialization completed in 2836 ms
+[2024/03/06 21:41:24865][INFO][LOGSERVICE][日志系统][org.springframework.scheduling.concurrent.ExecutorConfigurationSupport.initialize(ExecutorConfigurationSupport.java:181)]
+Initializing ExecutorService 'applicationTaskExecutor'
+[2024/03/06 21:41:25942][INFO][LOGSERVICE][日志系统][org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer.startServer(OptionalLiveReloadServer.java:58)]
+LiveReload server is running on port 35729
+[2024/03/06 21:41:26003][INFO][LOGSERVICE][日志系统][org.apache.juli.logging.DirectJDKLog.log(DirectJDKLog.java:173)]
+Starting ProtocolHandler ["http-nio-8890"]
+[2024/03/06 21:41:26050][INFO][LOGSERVICE][日志系统][org.springframework.boot.web.embedded.tomcat.TomcatWebServer.start(TomcatWebServer.java:220)]
+Tomcat started on port(s): 8890 (http) with context path ''
+[2024/03/06 21:41:26071][INFO][LOGSERVICE][日志系统][org.springframework.boot.StartupInfoLogger.logStarted(StartupInfoLogger.java:61)]
+Started BlogChat in 8.075 seconds (JVM running for 11.725)
+[2024/03/06 21:41:34994][INFO][LOGSERVICE][日志系统][org.apache.juli.logging.DirectJDKLog.log(DirectJDKLog.java:173)]
+Initializing Spring DispatcherServlet 'dispatcherServlet'
+[2024/03/06 21:41:34995][INFO][LOGSERVICE][日志系统][org.springframework.web.servlet.FrameworkServlet.initServletBean(FrameworkServlet.java:525)]
+Initializing Servlet 'dispatcherServlet'
+[2024/03/06 21:41:35009][INFO][LOGSERVICE][日志系统][org.springframework.web.servlet.FrameworkServlet.initServletBean(FrameworkServlet.java:547)]
+Completed initialization in 12 ms
+[2024/03/06 21:41:35088][INFO][LOGSERVICE][日志系统][com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:110)]
+HikariPool-1 - Starting...
+[2024/03/06 21:41:36889][INFO][LOGSERVICE][日志系统][com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:123)]
+HikariPool-1 - Start completed.
+[2024/03/06 21:42:15942][INFO][LOGSERVICE][日志系统][org.springframework.scheduling.concurrent.ExecutorConfigurationSupport.shutdown(ExecutorConfigurationSupport.java:218)]
+Shutting down ExecutorService 'applicationTaskExecutor'
+[2024/03/06 21:42:15945][INFO][LOGSERVICE][日志系统][com.zaxxer.hikari.HikariDataSource.close(HikariDataSource.java:350)]
+HikariPool-1 - Shutdown initiated...
+[2024/03/06 21:42:15961][INFO][LOGSERVICE][日志系统][com.zaxxer.hikari.HikariDataSource.close(HikariDataSource.java:352)]
+HikariPool-1 - Shutdown completed.
+[2024/03/06 21:42:25097][INFO][LOGSERVICE][日志系统][org.springframework.boot.StartupInfoLogger.logStarting(StartupInfoLogger.java:55)]
+Starting BlogChat on LAPTOP-P2VSRQEI with PID 10124 (D:\Source Code\IdeaProjects\blog-parent\blog-chat\target\classes started by 86132 in D:\Source Code\IdeaProjects\blog-parent)
+[2024/03/06 21:42:25173][INFO][LOGSERVICE][日志系统][org.springframework.boot.SpringApplication.logStartupProfileInfo(SpringApplication.java:651)]
+No active profile set, falling back to default profiles: default
+[2024/03/06 21:42:25265][INFO][LOGSERVICE][日志系统][org.springframework.boot.logging.DeferredLog.logTo(DeferredLog.java:225)]
+Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+[2024/03/06 21:42:25266][INFO][LOGSERVICE][日志系统][org.springframework.boot.logging.DeferredLog.logTo(DeferredLog.java:225)]
+For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+[2024/03/06 21:42:26446][INFO][LOGSERVICE][日志系统][org.springframework.data.repository.config.RepositoryConfigurationDelegate.multipleStoresDetected(RepositoryConfigurationDelegate.java:249)]
+Multiple Spring Data modules found, entering strict repository configuration mode!
+[2024/03/06 21:42:26452][INFO][LOGSERVICE][日志系统][org.springframework.data.repository.config.RepositoryConfigurationDelegate.registerRepositoriesIn(RepositoryConfigurationDelegate.java:127)]
+Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+[2024/03/06 21:42:26513][INFO][LOGSERVICE][日志系统][org.springframework.data.repository.config.RepositoryConfigurationDelegate.registerRepositoriesIn(RepositoryConfigurationDelegate.java:187)]
+Finished Spring Data repository scanning in 31ms. Found 0 Redis repository interfaces.
+[2024/03/06 21:42:27662][INFO][LOGSERVICE][日志系统][org.springframework.boot.web.embedded.tomcat.TomcatWebServer.initialize(TomcatWebServer.java:108)]
+Tomcat initialized with port(s): 8890 (http)
+[2024/03/06 21:42:27679][INFO][LOGSERVICE][日志系统][org.apache.juli.logging.DirectJDKLog.log(DirectJDKLog.java:173)]
+Initializing ProtocolHandler ["http-nio-8890"]
+[2024/03/06 21:42:27680][INFO][LOGSERVICE][日志系统][org.apache.juli.logging.DirectJDKLog.log(DirectJDKLog.java:173)]
+Starting service [Tomcat]
+[2024/03/06 21:42:27681][INFO][LOGSERVICE][日志系统][org.apache.juli.logging.DirectJDKLog.log(DirectJDKLog.java:173)]
+Starting Servlet engine: [Apache Tomcat/9.0.41]
+[2024/03/06 21:42:27951][INFO][LOGSERVICE][日志系统][org.apache.juli.logging.DirectJDKLog.log(DirectJDKLog.java:173)]
+Initializing Spring embedded WebApplicationContext
+[2024/03/06 21:42:27952][INFO][LOGSERVICE][日志系统][org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.prepareWebApplicationContext(ServletWebServerApplicationContext.java:285)]
+Root WebApplicationContext: initialization completed in 2684 ms
+[2024/03/06 21:42:31056][INFO][LOGSERVICE][日志系统][org.springframework.scheduling.concurrent.ExecutorConfigurationSupport.initialize(ExecutorConfigurationSupport.java:181)]
+Initializing ExecutorService 'applicationTaskExecutor'
+[2024/03/06 21:42:32275][INFO][LOGSERVICE][日志系统][org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer.startServer(OptionalLiveReloadServer.java:58)]
+LiveReload server is running on port 35729
+[2024/03/06 21:42:32360][INFO][LOGSERVICE][日志系统][org.apache.juli.logging.DirectJDKLog.log(DirectJDKLog.java:173)]
+Starting ProtocolHandler ["http-nio-8890"]
+[2024/03/06 21:42:32414][INFO][LOGSERVICE][日志系统][org.springframework.boot.web.embedded.tomcat.TomcatWebServer.start(TomcatWebServer.java:220)]
+Tomcat started on port(s): 8890 (http) with context path ''
+[2024/03/06 21:42:32437][INFO][LOGSERVICE][日志系统][org.springframework.boot.StartupInfoLogger.logStarted(StartupInfoLogger.java:61)]
+Started BlogChat in 8.111 seconds (JVM running for 11.835)
+[2024/03/06 21:42:39824][INFO][LOGSERVICE][日志系统][org.apache.juli.logging.DirectJDKLog.log(DirectJDKLog.java:173)]
+Initializing Spring DispatcherServlet 'dispatcherServlet'
+[2024/03/06 21:42:39824][INFO][LOGSERVICE][日志系统][org.springframework.web.servlet.FrameworkServlet.initServletBean(FrameworkServlet.java:525)]
+Initializing Servlet 'dispatcherServlet'
+[2024/03/06 21:42:39838][INFO][LOGSERVICE][日志系统][org.springframework.web.servlet.FrameworkServlet.initServletBean(FrameworkServlet.java:547)]
+Completed initialization in 13 ms
+[2024/03/06 21:42:39921][INFO][LOGSERVICE][日志系统][com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:110)]
+HikariPool-1 - Starting...
+[2024/03/06 21:42:41569][INFO][LOGSERVICE][日志系统][com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:123)]
+HikariPool-1 - Start completed.
+[2024/03/06 21:43:41407][INFO][LOGSERVICE][日志系统][org.springframework.scheduling.concurrent.ExecutorConfigurationSupport.shutdown(ExecutorConfigurationSupport.java:218)]
+Shutting down ExecutorService 'applicationTaskExecutor'
+[2024/03/06 21:43:41408][INFO][LOGSERVICE][日志系统][com.zaxxer.hikari.HikariDataSource.close(HikariDataSource.java:350)]
+HikariPool-1 - Shutdown initiated...
+[2024/03/06 21:43:41426][INFO][LOGSERVICE][日志系统][com.zaxxer.hikari.HikariDataSource.close(HikariDataSource.java:352)]
+HikariPool-1 - Shutdown completed.
+[2024/03/06 21:44:04772][INFO][LOGSERVICE][日志系统][org.springframework.boot.StartupInfoLogger.logStarting(StartupInfoLogger.java:55)]
+Starting BlogChat on LAPTOP-P2VSRQEI with PID 15096 (D:\Source Code\IdeaProjects\blog-parent\blog-chat\target\classes started by 86132 in D:\Source Code\IdeaProjects\blog-parent)
+[2024/03/06 21:44:04853][INFO][LOGSERVICE][日志系统][org.springframework.boot.SpringApplication.logStartupProfileInfo(SpringApplication.java:651)]
+No active profile set, falling back to default profiles: default
+[2024/03/06 21:44:04937][INFO][LOGSERVICE][日志系统][org.springframework.boot.logging.DeferredLog.logTo(DeferredLog.java:225)]
+Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+[2024/03/06 21:44:04938][INFO][LOGSERVICE][日志系统][org.springframework.boot.logging.DeferredLog.logTo(DeferredLog.java:225)]
+For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+[2024/03/06 21:44:06227][INFO][LOGSERVICE][日志系统][org.springframework.data.repository.config.RepositoryConfigurationDelegate.multipleStoresDetected(RepositoryConfigurationDelegate.java:249)]
+Multiple Spring Data modules found, entering strict repository configuration mode!
+[2024/03/06 21:44:06237][INFO][LOGSERVICE][日志系统][org.springframework.data.repository.config.RepositoryConfigurationDelegate.registerRepositoriesIn(RepositoryConfigurationDelegate.java:127)]
+Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+[2024/03/06 21:44:06303][INFO][LOGSERVICE][日志系统][org.springframework.data.repository.config.RepositoryConfigurationDelegate.registerRepositoriesIn(RepositoryConfigurationDelegate.java:187)]
+Finished Spring Data repository scanning in 32ms. Found 0 Redis repository interfaces.
+[2024/03/06 21:44:07809][INFO][LOGSERVICE][日志系统][org.springframework.boot.web.embedded.tomcat.TomcatWebServer.initialize(TomcatWebServer.java:108)]
+Tomcat initialized with port(s): 8890 (http)
+[2024/03/06 21:44:07828][INFO][LOGSERVICE][日志系统][org.apache.juli.logging.DirectJDKLog.log(DirectJDKLog.java:173)]
+Initializing ProtocolHandler ["http-nio-8890"]
+[2024/03/06 21:44:07829][INFO][LOGSERVICE][日志系统][org.apache.juli.logging.DirectJDKLog.log(DirectJDKLog.java:173)]
+Starting service [Tomcat]
+[2024/03/06 21:44:07831][INFO][LOGSERVICE][日志系统][org.apache.juli.logging.DirectJDKLog.log(DirectJDKLog.java:173)]
+Starting Servlet engine: [Apache Tomcat/9.0.41]
+[2024/03/06 21:44:08116][INFO][LOGSERVICE][日志系统][org.apache.juli.logging.DirectJDKLog.log(DirectJDKLog.java:173)]
+Initializing Spring embedded WebApplicationContext
+[2024/03/06 21:44:08117][INFO][LOGSERVICE][日志系统][org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.prepareWebApplicationContext(ServletWebServerApplicationContext.java:285)]
+Root WebApplicationContext: initialization completed in 3178 ms
+[2024/03/06 21:44:11128][INFO][LOGSERVICE][日志系统][org.springframework.scheduling.concurrent.ExecutorConfigurationSupport.initialize(ExecutorConfigurationSupport.java:181)]
+Initializing ExecutorService 'applicationTaskExecutor'
+[2024/03/06 21:44:12343][INFO][LOGSERVICE][日志系统][org.apache.juli.logging.DirectJDKLog.log(DirectJDKLog.java:173)]
+Starting ProtocolHandler ["http-nio-8890"]
+[2024/03/06 21:44:12397][INFO][LOGSERVICE][日志系统][org.springframework.boot.web.embedded.tomcat.TomcatWebServer.start(TomcatWebServer.java:220)]
+Tomcat started on port(s): 8890 (http) with context path ''
+[2024/03/06 21:44:12421][INFO][LOGSERVICE][日志系统][org.springframework.boot.StartupInfoLogger.logStarted(StartupInfoLogger.java:61)]
+Started BlogChat in 8.417 seconds (JVM running for 12.397)
+[2024/03/06 21:47:07971][INFO][LOGSERVICE][日志系统][org.apache.juli.logging.DirectJDKLog.log(DirectJDKLog.java:173)]
+Initializing Spring DispatcherServlet 'dispatcherServlet'
+[2024/03/06 21:47:07972][INFO][LOGSERVICE][日志系统][org.springframework.web.servlet.FrameworkServlet.initServletBean(FrameworkServlet.java:525)]
+Initializing Servlet 'dispatcherServlet'
+[2024/03/06 21:47:07985][INFO][LOGSERVICE][日志系统][org.springframework.web.servlet.FrameworkServlet.initServletBean(FrameworkServlet.java:547)]
+Completed initialization in 13 ms
+[2024/03/06 21:47:08065][INFO][LOGSERVICE][日志系统][com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:110)]
+HikariPool-1 - Starting...
+[2024/03/06 21:47:09712][INFO][LOGSERVICE][日志系统][com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:123)]
+HikariPool-1 - Start completed.
+[2024/03/06 21:56:01453][INFO][LOGSERVICE][日志系统][org.springframework.scheduling.concurrent.ExecutorConfigurationSupport.shutdown(ExecutorConfigurationSupport.java:218)]
+Shutting down ExecutorService 'applicationTaskExecutor'
+[2024/03/06 21:56:01457][INFO][LOGSERVICE][日志系统][com.zaxxer.hikari.HikariDataSource.close(HikariDataSource.java:350)]
+HikariPool-1 - Shutdown initiated...
+[2024/03/06 21:56:01487][INFO][LOGSERVICE][日志系统][com.zaxxer.hikari.HikariDataSource.close(HikariDataSource.java:352)]
+HikariPool-1 - Shutdown completed.
+[2024/03/06 22:08:09245][INFO][LOGSERVICE][日志系统][org.springframework.boot.StartupInfoLogger.logStarting(StartupInfoLogger.java:55)]
+Starting BlogChat on LAPTOP-P2VSRQEI with PID 13460 (D:\Source Code\IdeaProjects\blog-parent\blog-chat\target\classes started by 86132 in D:\Source Code\IdeaProjects\blog-parent)
+[2024/03/06 22:08:09323][INFO][LOGSERVICE][日志系统][org.springframework.boot.SpringApplication.logStartupProfileInfo(SpringApplication.java:651)]
+No active profile set, falling back to default profiles: default
+[2024/03/06 22:08:09408][INFO][LOGSERVICE][日志系统][org.springframework.boot.logging.DeferredLog.logTo(DeferredLog.java:225)]
+Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+[2024/03/06 22:08:09409][INFO][LOGSERVICE][日志系统][org.springframework.boot.logging.DeferredLog.logTo(DeferredLog.java:225)]
+For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+[2024/03/06 22:08:10816][INFO][LOGSERVICE][日志系统][org.springframework.data.repository.config.RepositoryConfigurationDelegate.multipleStoresDetected(RepositoryConfigurationDelegate.java:249)]
+Multiple Spring Data modules found, entering strict repository configuration mode!
+[2024/03/06 22:08:10822][INFO][LOGSERVICE][日志系统][org.springframework.data.repository.config.RepositoryConfigurationDelegate.registerRepositoriesIn(RepositoryConfigurationDelegate.java:127)]
+Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+[2024/03/06 22:08:10889][INFO][LOGSERVICE][日志系统][org.springframework.data.repository.config.RepositoryConfigurationDelegate.registerRepositoriesIn(RepositoryConfigurationDelegate.java:187)]
+Finished Spring Data repository scanning in 34ms. Found 0 Redis repository interfaces.
+[2024/03/06 22:08:12437][INFO][LOGSERVICE][日志系统][org.springframework.boot.web.embedded.tomcat.TomcatWebServer.initialize(TomcatWebServer.java:108)]
+Tomcat initialized with port(s): 8890 (http)
+[2024/03/06 22:08:12463][INFO][LOGSERVICE][日志系统][org.apache.juli.logging.DirectJDKLog.log(DirectJDKLog.java:173)]
+Initializing ProtocolHandler ["http-nio-8890"]
+[2024/03/06 22:08:12464][INFO][LOGSERVICE][日志系统][org.apache.juli.logging.DirectJDKLog.log(DirectJDKLog.java:173)]
+Starting service [Tomcat]
+[2024/03/06 22:08:12466][INFO][LOGSERVICE][日志系统][org.apache.juli.logging.DirectJDKLog.log(DirectJDKLog.java:173)]
+Starting Servlet engine: [Apache Tomcat/9.0.41]
+[2024/03/06 22:08:12763][INFO][LOGSERVICE][日志系统][org.apache.juli.logging.DirectJDKLog.log(DirectJDKLog.java:173)]
+Initializing Spring embedded WebApplicationContext
+[2024/03/06 22:08:12763][INFO][LOGSERVICE][日志系统][org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.prepareWebApplicationContext(ServletWebServerApplicationContext.java:285)]
+Root WebApplicationContext: initialization completed in 3353 ms
+[2024/03/06 22:08:16100][INFO][LOGSERVICE][日志系统][org.springframework.scheduling.concurrent.ExecutorConfigurationSupport.initialize(ExecutorConfigurationSupport.java:181)]
+Initializing ExecutorService 'applicationTaskExecutor'
+[2024/03/06 22:08:17496][INFO][LOGSERVICE][日志系统][org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer.startServer(OptionalLiveReloadServer.java:58)]
+LiveReload server is running on port 35729
+[2024/03/06 22:08:17577][INFO][LOGSERVICE][日志系统][org.apache.juli.logging.DirectJDKLog.log(DirectJDKLog.java:173)]
+Starting ProtocolHandler ["http-nio-8890"]
+[2024/03/06 22:08:17633][INFO][LOGSERVICE][日志系统][org.springframework.boot.web.embedded.tomcat.TomcatWebServer.start(TomcatWebServer.java:220)]
+Tomcat started on port(s): 8890 (http) with context path ''
+[2024/03/06 22:08:17655][INFO][LOGSERVICE][日志系统][org.springframework.boot.StartupInfoLogger.logStarted(StartupInfoLogger.java:61)]
+Started BlogChat in 9.065 seconds (JVM running for 13.691)
+[2024/03/06 22:10:16279][INFO][LOGSERVICE][日志系统][org.springframework.scheduling.concurrent.ExecutorConfigurationSupport.shutdown(ExecutorConfigurationSupport.java:218)]
+Shutting down ExecutorService 'applicationTaskExecutor'
+[2024/03/06 22:10:26419][INFO][LOGSERVICE][日志系统][org.springframework.boot.StartupInfoLogger.logStarting(StartupInfoLogger.java:55)]
+Starting BlogChat on LAPTOP-P2VSRQEI with PID 28212 (D:\Source Code\IdeaProjects\blog-parent\blog-chat\target\classes started by 86132 in D:\Source Code\IdeaProjects\blog-parent)
+[2024/03/06 22:10:26501][INFO][LOGSERVICE][日志系统][org.springframework.boot.SpringApplication.logStartupProfileInfo(SpringApplication.java:651)]
+No active profile set, falling back to default profiles: default
+[2024/03/06 22:10:26596][INFO][LOGSERVICE][日志系统][org.springframework.boot.logging.DeferredLog.logTo(DeferredLog.java:225)]
+Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+[2024/03/06 22:10:26598][INFO][LOGSERVICE][日志系统][org.springframework.boot.logging.DeferredLog.logTo(DeferredLog.java:225)]
+For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+[2024/03/06 22:10:28019][INFO][LOGSERVICE][日志系统][org.springframework.data.repository.config.RepositoryConfigurationDelegate.multipleStoresDetected(RepositoryConfigurationDelegate.java:249)]
+Multiple Spring Data modules found, entering strict repository configuration mode!
+[2024/03/06 22:10:28024][INFO][LOGSERVICE][日志系统][org.springframework.data.repository.config.RepositoryConfigurationDelegate.registerRepositoriesIn(RepositoryConfigurationDelegate.java:127)]
+Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+[2024/03/06 22:10:28114][INFO][LOGSERVICE][日志系统][org.springframework.data.repository.config.RepositoryConfigurationDelegate.registerRepositoriesIn(RepositoryConfigurationDelegate.java:187)]
+Finished Spring Data repository scanning in 47ms. Found 0 Redis repository interfaces.
+[2024/03/06 22:10:29688][INFO][LOGSERVICE][日志系统][org.springframework.boot.web.embedded.tomcat.TomcatWebServer.initialize(TomcatWebServer.java:108)]
+Tomcat initialized with port(s): 8890 (http)
+[2024/03/06 22:10:29709][INFO][LOGSERVICE][日志系统][org.apache.juli.logging.DirectJDKLog.log(DirectJDKLog.java:173)]
+Initializing ProtocolHandler ["http-nio-8890"]
+[2024/03/06 22:10:29710][INFO][LOGSERVICE][日志系统][org.apache.juli.logging.DirectJDKLog.log(DirectJDKLog.java:173)]
+Starting service [Tomcat]
+[2024/03/06 22:10:29712][INFO][LOGSERVICE][日志系统][org.apache.juli.logging.DirectJDKLog.log(DirectJDKLog.java:173)]
+Starting Servlet engine: [Apache Tomcat/9.0.41]
+[2024/03/06 22:10:30034][INFO][LOGSERVICE][日志系统][org.apache.juli.logging.DirectJDKLog.log(DirectJDKLog.java:173)]
+Initializing Spring embedded WebApplicationContext
+[2024/03/06 22:10:30035][INFO][LOGSERVICE][日志系统][org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.prepareWebApplicationContext(ServletWebServerApplicationContext.java:285)]
+Root WebApplicationContext: initialization completed in 3435 ms
+[2024/03/06 22:10:33399][INFO][LOGSERVICE][日志系统][org.springframework.scheduling.concurrent.ExecutorConfigurationSupport.initialize(ExecutorConfigurationSupport.java:181)]
+Initializing ExecutorService 'applicationTaskExecutor'
+[2024/03/06 22:10:34765][INFO][LOGSERVICE][日志系统][org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer.startServer(OptionalLiveReloadServer.java:58)]
+LiveReload server is running on port 35729
+[2024/03/06 22:10:34837][INFO][LOGSERVICE][日志系统][org.apache.juli.logging.DirectJDKLog.log(DirectJDKLog.java:173)]
+Starting ProtocolHandler ["http-nio-8890"]
+[2024/03/06 22:10:34899][INFO][LOGSERVICE][日志系统][org.springframework.boot.web.embedded.tomcat.TomcatWebServer.start(TomcatWebServer.java:220)]
+Tomcat started on port(s): 8890 (http) with context path ''
+[2024/03/06 22:10:34926][INFO][LOGSERVICE][日志系统][org.springframework.boot.StartupInfoLogger.logStarted(StartupInfoLogger.java:61)]
+Started BlogChat in 9.385 seconds (JVM running for 13.487)
+[2024/03/06 22:11:18959][INFO][LOGSERVICE][日志系统][org.apache.juli.logging.DirectJDKLog.log(DirectJDKLog.java:173)]
+Initializing Spring DispatcherServlet 'dispatcherServlet'
+[2024/03/06 22:11:18959][INFO][LOGSERVICE][日志系统][org.springframework.web.servlet.FrameworkServlet.initServletBean(FrameworkServlet.java:525)]
+Initializing Servlet 'dispatcherServlet'
+[2024/03/06 22:11:18976][INFO][LOGSERVICE][日志系统][org.springframework.web.servlet.FrameworkServlet.initServletBean(FrameworkServlet.java:547)]
+Completed initialization in 16 ms
+[2024/03/06 22:11:19097][INFO][LOGSERVICE][日志系统][com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:110)]
+HikariPool-1 - Starting...
+[2024/03/06 22:11:21086][INFO][LOGSERVICE][日志系统][com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:123)]
+HikariPool-1 - Start completed.
+[2024/03/06 22:38:34892][INFO][LOGSERVICE][日志系统][org.springframework.scheduling.concurrent.ExecutorConfigurationSupport.shutdown(ExecutorConfigurationSupport.java:218)]
+Shutting down ExecutorService 'applicationTaskExecutor'
+[2024/03/06 22:38:34893][INFO][LOGSERVICE][日志系统][com.zaxxer.hikari.HikariDataSource.close(HikariDataSource.java:350)]
+HikariPool-1 - Shutdown initiated...
+[2024/03/06 22:38:34912][INFO][LOGSERVICE][日志系统][com.zaxxer.hikari.HikariDataSource.close(HikariDataSource.java:352)]
+HikariPool-1 - Shutdown completed.

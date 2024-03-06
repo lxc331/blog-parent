@@ -14,7 +14,7 @@ public class Login {
 	@Autowired
 	LoginService loginservice;
 	
-	@RequestMapping("/loginValidate")
+	/*@RequestMapping("/loginValidate")
 	public String loginValidate(@RequestParam("username") String username,@RequestParam("password") String pwd,HttpSession httpSession){
 		if(username==null)
 			return "login";
@@ -26,6 +26,16 @@ public class Login {
 			return "chatroom";
 		}else
 			return "fail";
+	}*/
+
+	@GetMapping("/loginValidate/{username}")
+	public String loginValidate(@PathVariable("username") String username,HttpSession httpSession) {
+		if (username == null) return "fail";
+		else {
+			long uid=loginservice.getUidByName(username);
+			httpSession.setAttribute("uid", uid);
+			return "chatroom";
+		}
 	}
 	
 	@RequestMapping("/login")
