@@ -45,7 +45,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .failureUrl("/login.html")
                 .permitAll() //通过 不拦截，更加前面配的路径决定，这是指和登录表单相关的接口 都通过
                 .and().logout() //退出登录配置
-                .logoutUrl("/logout") //退出登录接口
+                .logoutUrl("/admin/logout") //退出登录接口
                 .logoutSuccessUrl("/login.html")
                 .permitAll() //退出登录的接口放行
                 .and()

@@ -81,7 +81,7 @@ public class ArticleServiceImpl implements ArticleService {
         }
         return articleVo;
     }
-
+    //注意后端的数据传递展示到前端的时候要进行copyList，否则无法精确展示大数(long)，从而使得不仅前端展示错误，并且从前端获取数据时也会出错
     private List<ArticleVo> copyList(List<Article> recodes,boolean isTag,boolean isAuthor) {
         List<ArticleVo> articleVoList = new ArrayList<>();
         for (Article recode : recodes) {

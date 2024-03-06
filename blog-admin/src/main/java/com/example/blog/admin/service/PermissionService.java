@@ -30,17 +30,17 @@ public class PermissionService {
     }
 
     public Result add(Permission permission) {
-        this.permissionMapper.insert(permission);
+        permissionMapper.insert(permission);
         return Result.success(null);
     }
 
     public Result update(Permission permission) {
-        this.permissionMapper.updateById(permission);
+        permissionMapper.updateById(permission);
         return Result.success(null);
     }
 
     public Result delete(Long id) {
-        this.permissionMapper.deleteById(id);
+        permissionMapper.deleteById(id);
         return Result.success(null);
     }
 }
