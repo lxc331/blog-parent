@@ -2,8 +2,9 @@ package com.example.blog.chat.service.impl;
 
 
 
+import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.example.blog.chat.mapper.LoginMapper;
-import com.example.blog.chat.pojo.Staff;
+import com.example.blog.chat.pojo.SysUser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Isolation;
@@ -19,33 +20,23 @@ public class LoginServiceImpl implements LoginService{
 	@Autowired
 	LoginMapper loginmapper;
 	
-	public String getPwdByName(String name) {
-		Staff s=loginmapper.getPwdByName(name);
-		if (s != null) {
-			return s.getPassword();
-		}else {
-			return null;
-		}
-	}
-	
 	public Long getUidByName(String name) {
-		Staff s=loginmapper.getPwdByName(name);
+		LambdaQueryWrapper<SysUser> queryWrapper = new LambdaQueryWrapper<>();
+		queryWrapper.like(SysUser::getAccount,name);
+		SysUser sysUser = loginmapper.selectOne(queryWrapper);
 
-		if (s != null) {
-			return (long) s.getStaff_id();
+		if (sysUser != null) {
+			return (long) sysUser.getId();
 		}else {
 			return null;
 		}
 	}
 	
 	public String getNameById(long id) {
-		Staff s=loginmapper.getNameById(id);
-		if(s!=null)
-			return s.getUsername();
-			else
+		SysUser sysUser = loginmapper.selectById(id);
+		if(sysUser!=null)
+			return sysUser.getAccount();
+		else
 			return null;
 	}
-	
-	
-
 }

@@ -39,13 +39,12 @@ public class ChatController {
 		return nameset;
 	}
 
-
 	@RequestMapping("getuid")
 	@ResponseBody
 	public User getuid(@RequestParam("username") String username) {
-		Long a = loginservice.getUidByName(username);
-		User u = new User();
-		u.setUid(a);
-		return u;
+		Long uid = loginservice.getUidByName(username);
+		User user = new User();
+		user.setUid(uid);
+		return user;
 	}
 }

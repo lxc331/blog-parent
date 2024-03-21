@@ -24,8 +24,5 @@ public class UserNameServiceImpl implements UserNameService {
         return "chatroom";
     }
 
-    @Override
-    public User checkToken(String token) {
-        return null;
-    }
+
 }

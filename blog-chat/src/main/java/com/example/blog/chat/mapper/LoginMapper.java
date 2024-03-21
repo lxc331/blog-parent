@@ -1,11 +1,10 @@
 package com.example.blog.chat.mapper;
 
-import com.example.blog.chat.pojo.Staff;
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.example.blog.chat.pojo.SysUser;
 import org.apache.ibatis.annotations.Mapper;
 
 @Mapper
-public interface LoginMapper {
-	Staff getPwdByName(String name);
+public interface LoginMapper extends BaseMapper<SysUser> {
 
-	Staff getNameById(long id);
 }

@@ -11,9 +11,11 @@ public class UserThreadLocal {
     public static void put(SysUser sysUser){
         LOCAL.set(sysUser);
     }
+
     public static SysUser get(){
         return LOCAL.get();
     }
+
     public static void remove(){
         LOCAL.remove();
     }

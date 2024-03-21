@@ -13,21 +13,13 @@ import org.springframework.web.bind.annotation.*;
 public class Login {
 	@Autowired
 	LoginService loginservice;
-	
-	/*@RequestMapping("/loginValidate")
-	public String loginValidate(@RequestParam("username") String username,@RequestParam("password") String pwd,HttpSession httpSession){
-		if(username==null)
-			return "login";
-		String realPwd=loginservice.getPwdByName(username);
-		if(realPwd!=null&&pwd.equals(realPwd))
-		{
-			long uid=loginservice.getUidByName(username);
-			httpSession.setAttribute("uid", uid);
-			return "chatroom";
-		}else
-			return "fail";
-	}*/
 
+	/**
+	 * 聊天室用户的验证
+	 * @param username
+	 * @param httpSession
+	 * @return
+	 */
 	@GetMapping("/loginValidate/{username}")
 	public String loginValidate(@PathVariable("username") String username,HttpSession httpSession) {
 		if (username == null) return "fail";
@@ -37,17 +29,12 @@ public class Login {
 			return "chatroom";
 		}
 	}
-	
-	@RequestMapping("/login")
-	public String login(){
-		return "login";
-	}
-	
-	@RequestMapping("/logout")
-	public String logout(HttpSession httpSession){
-		return "login";
-	}
-	
+
+	/**
+	 * 从httpSession的用户id中获得用户名并获取返回一个User
+	 * @param httpSession
+	 * @return
+	 */
 	@RequestMapping(value="/currentuser",method = RequestMethod.GET)
 	@ResponseBody
 	public User currentuser(HttpSession httpSession){
