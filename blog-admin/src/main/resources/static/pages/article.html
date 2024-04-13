@@ -27,28 +27,31 @@
 <body class="hold-transition">
 <div id="app">
     <div class="content-header">
-        <h1>网站管理<small>用户管理</small></h1>
+        <h1>网站管理<small>文章管理</small></h1>
         <el-breadcrumb separator-class="el-icon-arrow-right" class="breadcrumb">
             <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
             <el-breadcrumb-item>网站管理</el-breadcrumb-item>
-            <el-breadcrumb-item>用户管理</el-breadcrumb-item>
+            <el-breadcrumb-item>文章管理</el-breadcrumb-item>
         </el-breadcrumb>
     </div>
     <div class="app-container">
         <div class="box">
             <div class="filter-container">
-                <el-input placeholder="用户名称" v-model="pagination.queryString" style="width: 200px;" class="filter-item"></el-input>
+                <el-input placeholder="文章标题" v-model="pagination.queryString" style="width: 200px;" class="filter-item"></el-input>
                 <el-button @click="findSearchPage()" class="dalfBut">查询</el-button>
             </div>
             <el-table size="small" current-row-key="id" :data="dataList" stripe highlight-current-row>
                 <el-table-column label="编号" align="center" prop="id">
                 </el-table-column>
-                <el-table-column label="名字" align="center" prop="account">
+                <el-table-column label="文章标题" align="center" prop="title">
+                </el-table-column>
+                <el-table-column label="文章作者" align="center" prop="account">
+                </el-table-column>
+                <el-table-column label="文章摘要" align="center" prop="summary">
                 </el-table-column>
                 <el-table-column label="操作" align="center">
                     <template slot-scope="scope">
-                        <el-button type="primary" size="mini" @click="handleUpdate(scope.row)">编辑</el-button>
-                        <el-button size="mini" type="danger" @click="handleDelete(scope.row)">删除</el-button>
+                        <el-button size="mini" type="danger" @click="handleDelete(scope.row)">文章下架</el-button>
                     </template>
                 </el-table-column>
             </el-table>
@@ -61,26 +64,6 @@
                         layout="total, prev, pager, next, jumper"
                         :total="pagination.total">
                 </el-pagination>
-            </div>
-
-            <!-- 编辑标签弹层 -->
-            <div class="add-form">
-                <el-dialog title="编辑" :visible.sync="dialogFormVisibleEdit">
-                    <el-form ref="dataAddForm" :model="this.formData" :rules="rules" label-position="right" label-width="100px">
-                        <el-row>
-                            <el-col >
-                                <el-form-item label="名字" prop="account">
-                                    <el-input  v-model="formData.account"/>
-                                </el-form-item>
-                            </el-col>
-                        </el-row>
-
-                    </el-form>
-                    <div slot="footer" class="dialog-footer">
-                        <el-button @click="dialogFormVisibleEdit = false">取消</el-button>
-                        <el-button type="primary" @click="handleEdit()">确定</el-button>
-                    </div>
-                </el-dialog>
             </div>
         </div>
     </div>
@@ -156,7 +139,7 @@
             },
             //编辑
             handleEdit() {
-                axios.post("/admin/user/update",this.formData).then((res)=>{
+                axios.post("/admin/permission/update",this.formData).then((res)=>{
                     if (res.data.success){
                         this.$message({
                             message: '恭喜你，编辑成功',
@@ -171,30 +154,13 @@
                     }
                 });
             },
-            //添加
-            handleAdd () {
-                axios.post("/admin/permission/add",this.formData).then((res)=>{
-                    if (res.data.success){
-                        this.$message({
-                            message: '恭喜你，添加成功',
-                            type: 'success'
-                        });
-                        this.dialogFormVisible = false;
-                        this.findPage();
-                    }
-                }).catch((error)=>{
-                    if (error == "Error: Request failed with status code 403"){
-                        this.$message.error("无操作权限");
-                    }
-                });
-            },
             findSearchPage(){
                 this.pagination.currentPage = 1;
                 this.findPage();
             },
             //分页查询
             findPage() {
-                axios.post("/admin/user/userList",this.pagination).then((res)=>{
+                axios.post("/admin/article/articleList",this.pagination).then((res)=>{
                     if (res.data.success){
                         this.dataList = res.data.data.list;
                         this.pagination.total = res.data.data.total;
@@ -233,7 +199,7 @@
                     cancelButtonText: '取消',
                     type: 'warning'
                 }).then(() => {
-                    axios.get("/admin/user/delete/"+row.id).then((res)=>{
+                    axios.get("/admin/article/delete/"+row.id).then((res)=>{
                         if (res.data.success){
                             this.$message.success("删除成功");
                         }
