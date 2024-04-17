@@ -13,6 +13,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.concurrent.TimeUnit;
 
@@ -25,6 +26,7 @@ public class RegisterServiceImpl implements RegisterService {
     //加密盐用于加密
     private static final String slat = "example!@#";
     @Override
+    @Transactional
     public Result register(RegisterParam registerParam) {
         /**
          * 1. 判断参数 是否合法
@@ -37,6 +39,8 @@ public class RegisterServiceImpl implements RegisterService {
          String account = registerParam.getAccount();
          String password = registerParam.getPassword();
          String nickname = registerParam.getNickname();
+         String avatar = registerParam.getAvatar();
+         System.out.println(registerParam);
          if (StringUtils.isBlank(account) || StringUtils.isBlank(password) || StringUtils.isBlank(nickname)) {
              return Result.fail(ErrorCode.ACCOUNT_EXIST.getCode(),ErrorCode.ACCOUNT_EXIST.getMsg());
          }
@@ -51,7 +55,10 @@ public class RegisterServiceImpl implements RegisterService {
          sysUser.setNickname(nickname);
          sysUser.setCreateDate(System.currentTimeMillis());
          sysUser.setLastLogin(System.currentTimeMillis());
-         sysUser.setAvatar("/static/img/logo.b3a48c0.png");
+         /*
+         头像的上传可改进
+          */
+         sysUser.setAvatar(avatar);
          sysUser.setAdmin(1);
          sysUser.setDeleted(0);
          sysUser.setSalt("");

@@ -13,7 +13,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 @Component
 public class QiniuUtils  {
-    public static final String url = "http://rnmtmrgkq.hd-bkt.clouddn.com";
+    public static final String url = "http://sbz3m26eq.hd-bkt.clouddn.com";
 
     //修改以下两个值放到proprietarties中，在密钥管理中获取
     @Value("SVL7aiOgu0w7b3VIciaoVltzOSZhPxoTEpx7lGJh")
@@ -28,7 +28,7 @@ public class QiniuUtils  {
         //...其他参数参考类注释
         UploadManager uploadManager = new UploadManager(cfg);
         //...生成上传凭证，然后准备上传，修改上传名称为自己创立空间的空间名称（是你自己的）
-        String bucket = "mar12";
+        String bucket = "newmavel";
         //默认不指定key的情况下，以文件内容的hash值作为文件名
         try {
             byte[] uploadBytes = file.getBytes();

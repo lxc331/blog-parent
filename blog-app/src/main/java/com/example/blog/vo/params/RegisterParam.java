@@ -9,4 +9,6 @@ public class RegisterParam {
     private String password;
 
     private String nickname;
+
+    private String avatar;
 }

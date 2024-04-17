@@ -1,5 +1,6 @@
 package com.example.blog.controller;
 
+import com.example.blog.common.aop.LogAnnotation;
 import com.example.blog.service.RegisterService;
 import com.example.blog.vo.Result;
 import com.example.blog.vo.params.RegisterParam;
@@ -16,6 +17,7 @@ public class RegisterController {
     private RegisterService registerService;
 
     //后端传递多个参数，前端只选用其需要的参数就可以了
+    @LogAnnotation(module = "注册",operation = "用户注册")
     @PostMapping
     public Result register(@RequestBody RegisterParam registerParam) {
         return registerService.register(registerParam);

@@ -20,19 +20,31 @@
           <el-input placeholder="密码" type="password" v-model="userForm.password"></el-input>
         </el-form-item>
 
+        <el-form-item label="用户头像:">
+          <el-upload
+            class="avatar-uploader"
+            action="http://localhost:8888/upload/avatar"
+            :show-file-list="false"
+            :on-success="handleAvatarSuccess"
+            :before-upload="beforeAvatarUpload">
+            <img v-if="userForm.avatar" :src="userForm.avatar" class="avatar">
+            <i v-else class="el-icon-plus avatar-uploader-icon"></i>
+          </el-upload>
+        </el-form-item>
+
         <el-form-item size="small" class="me-login-button">
           <el-button type="primary" @click.native.prevent="register('userForm')">注册</el-button>
         </el-form-item>
       </el-form>
 
-  
+
 
     </div>
   </div>
 </template>
 
 <script>
-  import {register} from '@/api/login'
+  import 'mavon-editor/dist/css/index.css'
 
   export default {
     name: 'Register',
@@ -41,7 +53,8 @@
         userForm: {
           account: '',
           nickname: '',
-          password: ''
+          password: '',
+          avatar: ''
         },
         rules: {
           account: [
@@ -58,14 +71,17 @@
           ]
         }
 
+
       }
+
     },
     methods: {
       register(formName) {
         let that = this
         this.$refs[formName].validate((valid) => {
           if (valid) {
-
+            console.log("second time + ")
+            console.log(that.userForm)
             that.$store.dispatch('register', that.userForm).then(() => {
               that.$message({message: '注册成功 快写文章吧', type: 'success', showClose: true});
               that.$router.push({path: '/'})
@@ -80,9 +96,32 @@
           }
         });
 
-      }
+      },
+      handleAvatarSuccess(res, file) {
+        let that = this
+        /*uploadAvatar().then(data => {
+          that.userForm.avatar = file.response.data
+        }).catch(err => {
+          that.$message({message: err, type: 'error', showClose: true});
+        })*/
+        that.userForm.avatar = file.response.data
+        console.log("first time + ")
+        console.log(that.userForm)
+      },
+      beforeAvatarUpload(image) {
+        const isJPG = image.type === 'image/jpeg';
+        const isLt2M = image.size / 1024 / 1024 < 2;
 
+        if (!isJPG) {
+          this.$message.error('上传头像图片只能是 JPG 格式!');
+        }
+        if (!isLt2M) {
+          this.$message.error('上传头像图片大小不能超过 2MB!');
+        }
+        return isJPG && isLt2M;
+      }
     }
+
   }
 </script>
 
@@ -91,7 +130,28 @@
     min-width: 100%;
     min-height: 100%;
   }
-
+  .avatar-uploader .el-upload {
+    border: 1px dashed #d9d9d9;
+    border-radius: 6px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+  }
+  .avatar-uploader .el-upload:hover {
+    border-color: #409EFF;
+  }
+  .avatar-uploader-icon {
+    font-size: 28px;
+    color: #8c939d;
+    width: 50px;
+    height: 50px;
+    line-height: 100px;
+  }
+  .avatar {
+    width: 100px;
+    height: 100px;
+    display: block;
+  }
   .me-video-player {
     background-color: transparent;
     width: 100%;
@@ -107,7 +167,7 @@
   .me-login-box {
     position: absolute;
     width: 300px;
-    height: 320px;
+    height: 390px;
     background-color: white;
     margin-top: 150px;
     margin-left: -180px;

@@ -33,4 +33,18 @@ public class UploadController {
         }
         return Result.fail(20001, "上传失败");
     }
+    @PostMapping("/avatar")
+    public Result uploadAvatar(MultipartFile file) {
+        //原始文件名称 比如说aa.png
+        String originalFilename = file.getOriginalFilename();
+        //唯一的文件名称
+        String fileName = UUID.randomUUID().toString() + "." + StringUtils.substringAfterLast(originalFilename, ".");
+        //上传文件上传到那里呢？　七牛云　云服务器
+        //降低我们自身应用服务器的带宽消耗
+        boolean upload = qiniuUtils.upload(file, fileName);
+        if (upload) {
+            return Result.success(QiniuUtils.url + "/" + fileName);
+        }
+        return Result.fail(20001, "上传失败");
+    }
 }

@@ -28,11 +28,12 @@ export function getUserInfo(token) {
   })
 }
 
-export function register(account, nickname, password) {
+export function register(account, nickname, password, avatar) {
   const data = {
     account,
     nickname,
-    password
+    password,
+    avatar
   }
   return request({
     url: '/register',
