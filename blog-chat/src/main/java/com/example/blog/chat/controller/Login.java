@@ -22,12 +22,7 @@ public class Login {
 	 */
 	@GetMapping("/loginValidate/{username}")
 	public String loginValidate(@PathVariable("username") String username,HttpSession httpSession) {
-		if (username == null) return "fail";
-		else {
-			long uid=loginservice.getUidByName(username);
-			httpSession.setAttribute("uid", uid);
-			return "chatroom";
-		}
+		return loginservice.loginValidate(username,httpSession);
 	}
 
 	/**
@@ -35,11 +30,9 @@ public class Login {
 	 * @param httpSession
 	 * @return
 	 */
-	@RequestMapping(value="/currentuser",method = RequestMethod.GET)
+	@RequestMapping(value="/currentUser",method = RequestMethod.GET)
 	@ResponseBody
-	public User currentuser(HttpSession httpSession){
-		Long uid = (Long)httpSession.getAttribute("uid");
-		String name = loginservice.getNameById(uid);
-		return new User(uid, name);
+	public User currentUser(HttpSession httpSession){
+		return loginservice.currentUser(httpSession);
 	}
   }

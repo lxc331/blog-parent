@@ -1,15 +1,9 @@
 package com.example.blog.chat.controller;
 
-import java.util.HashSet;
-import java.util.Iterator;
 import java.util.Set;
-import java.util.concurrent.ConcurrentHashMap;
-
-import javax.websocket.Session;
 
 import com.example.blog.chat.pojo.User;
-import com.example.blog.chat.service.LoginService;
-import com.example.blog.chat.service.WebSocketServer;
+import com.example.blog.chat.service.ChatService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,32 +13,28 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 public class ChatController {
-
 	@Autowired
-	LoginService loginservice;
-	
+	ChatService chatService;
 
-	@RequestMapping("/onlineusers")
+	/**
+	 * 获取当前在线的用户
+	 * @param currentUser
+	 * @return
+	 */
+	@RequestMapping("/onlineUsers")
 	@ResponseBody
-	public Set<String> onlineusers(@RequestParam("currentuser") String currentuser) {
-		ConcurrentHashMap<String, Session> map = WebSocketServer.getSessionPools();
-		Set<String> set = map.keySet();
-		Iterator<String> it = set.iterator();
-		Set<String> nameset = new HashSet<String>();
-		while (it.hasNext()) {
-			String entry = it.next();
-			if (!entry.equals(currentuser))
-				nameset.add(entry);
-		}
-		return nameset;
+	public Set<String> onlineUsers(@RequestParam("currentUser") String currentUser) {
+		return chatService.onlineUsers(currentUser);
 	}
 
+	/**
+	 * 根据用户账号(用户名)获取uid
+	 * @param username
+	 * @return
+	 */
 	@RequestMapping("getuid")
 	@ResponseBody
 	public User getuid(@RequestParam("username") String username) {
-		Long uid = loginservice.getUidByName(username);
-		User user = new User();
-		user.setUid(uid);
-		return user;
+		return chatService.getuid(username);
 	}
 }

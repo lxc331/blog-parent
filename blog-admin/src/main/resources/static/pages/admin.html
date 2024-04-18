@@ -236,6 +236,8 @@
                     axios.get("/admin/user/delete/"+row.id).then((res)=>{
                         if (res.data.success){
                             this.$message.success("删除成功");
+                        }else {
+                            console.log("error")
                         }
                     }).catch((error)=>{
                         if (error == "Error: Request failed with status code 403"){

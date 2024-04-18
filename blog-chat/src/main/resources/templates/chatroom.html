@@ -93,7 +93,7 @@ Date.prototype.format = function(fmt) {
     	var uid;
     	// 指定websocket路径
 	    var websocket;
-    	$.get("/currentuser",function(data){
+    	$.get("/currentUser",function(data){
     		user = data.name;
     		uid = data.uid;
     		$("#user").html(user);
@@ -124,7 +124,7 @@ Date.prototype.format = function(fmt) {
 	            }
 	        };
 	        
-	        $.post("/onlineusers?currentuser="+user,function(data){
+	        $.post("/onlineUsers?currentUser="+user,function(data){
     		for(var i=0;i<data.length;i++)
     			$("#users").append('<a href="#" onclick="talk(this)" class="list-group-item">'+data[i]+'</a>');
     		});

@@ -120,9 +120,6 @@ export default new Vuex.Store({
         register(user.account, user.nickname, user.password, user.avatar).then((data) => {
           if(data.success){
             commit('SET_TOKEN', data.data)
-            console.log("third time + ")
-            console.log(user)
-            console.log(data.data)
             setToken(data.data)
             resolve()
           }else{

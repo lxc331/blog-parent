@@ -15,6 +15,11 @@ public class UserNameServiceImpl implements UserNameService {
     @Autowired
     LoginService loginService;
 
+    /**
+     * 从局部县城变量中拿到用户信息，设置进httpSession中
+     * @param httpSession
+     * @return
+     */
     @Override
     public String selectCurrentUserName(HttpSession httpSession) {
         //拿到当前用户

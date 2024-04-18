@@ -17,7 +17,7 @@ public class ArticleController {
         return articleService.articleList(pageParam);
     }
 
-    @PostMapping("article/delete/{id}")
+    @GetMapping("article/delete/{id}")
     public Result delete(@PathVariable("id") Long id){
         return articleService.delete(id);
     }

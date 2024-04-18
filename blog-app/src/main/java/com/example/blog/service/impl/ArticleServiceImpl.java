@@ -295,6 +295,9 @@ public class ArticleServiceImpl implements ArticleService {
     @Transactional
     public Result delete(Long articleId) {
         articleMapper.deleteById(articleId);
+        ArticleMessage articleMessage = new ArticleMessage();
+        articleMessage.setArticleId(articleId);
+        updateCacheThread.updateArticleCache(articleMessage);
         return Result.success(null);
     }
 }

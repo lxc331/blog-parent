@@ -20,6 +20,10 @@
           <el-input placeholder="密码" type="password" v-model="userForm.password"></el-input>
         </el-form-item>
 
+        <el-form-item prop="password">
+          <el-input placeholder="确认密码" type="password" v-model="ConfirmPassword"></el-input>
+        </el-form-item>
+
         <el-form-item label="用户头像:">
           <el-upload
             class="avatar-uploader"
@@ -45,6 +49,7 @@
 
 <script>
   import 'mavon-editor/dist/css/index.css'
+  import {register} from "../api/login";
 
   export default {
     name: 'Register',
@@ -56,6 +61,7 @@
           password: '',
           avatar: ''
         },
+        ConfirmPassword: '',
         rules: {
           account: [
             {required: true, message: '请输入用户名', trigger: 'blur'},
@@ -68,6 +74,10 @@
           password: [
             {required: true, message: '请输入密码', trigger: 'blur'},
             {max: 10, message: '不能大于10个字符', trigger: 'blur'}
+          ],
+          ConfirmPassword: [
+            {required: true, message: '请输入确认密码', trigger: 'blur'},
+            {max: 10, message: '不能大于10个字符', trigger: 'blur'},
           ]
         }
 
@@ -79,9 +89,7 @@
       register(formName) {
         let that = this
         this.$refs[formName].validate((valid) => {
-          if (valid) {
-            console.log("second time + ")
-            console.log(that.userForm)
+          if (valid && that.userForm.password == that.ConfirmPassword) {
             that.$store.dispatch('register', that.userForm).then(() => {
               that.$message({message: '注册成功 快写文章吧', type: 'success', showClose: true});
               that.$router.push({path: '/'})
@@ -92,6 +100,7 @@
             })
 
           } else {
+            that.$message({message: '验证失败，确认密码错误', type: 'error', showClose: true});
             return false;
           }
         });
@@ -105,8 +114,6 @@
           that.$message({message: err, type: 'error', showClose: true});
         })*/
         that.userForm.avatar = file.response.data
-        console.log("first time + ")
-        console.log(that.userForm)
       },
       beforeAvatarUpload(image) {
         const isJPG = image.type === 'image/jpeg';
@@ -167,7 +174,7 @@
   .me-login-box {
     position: absolute;
     width: 300px;
-    height: 390px;
+    height: 450px;
     background-color: white;
     margin-top: 150px;
     margin-left: -180px;
