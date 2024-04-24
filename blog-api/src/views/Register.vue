@@ -40,7 +40,7 @@
           <el-button type="primary" @click.native.prevent="register('userForm')">注册</el-button>
         </el-form-item>
       </el-form>
-
+<!--      action="http://localhost:8888/upload/avatar"-->
 
 
     </div>

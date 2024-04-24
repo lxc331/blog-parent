@@ -65,6 +65,7 @@ public class WebSocketServer {
         sessionPools.put(userName, session);
         addOnlineCount();
         System.out.println(userName + "加入webSocket！当前人数为" + onlineNum);
+        //System.out.println(session.);
         // 广播上线消息
         Message msg = new Message();
         msg.setDate(new Date());

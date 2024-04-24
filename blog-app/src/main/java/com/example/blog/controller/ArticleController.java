@@ -68,7 +68,6 @@ public class ArticleController {
      * @return
      */
     @PostMapping("view/{id}")
-    @Cache(expire = 5 * 60 * 1000,name = "view_article")
     public Result findArticleById(@PathVariable("id") Long articleId){
         return articleService.findArticleById(articleId);
     }

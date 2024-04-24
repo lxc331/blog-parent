@@ -39,7 +39,10 @@ public class CacheAspect {
 
 
             Class[] parameterTypes = new Class[pjp.getArgs().length];
+            //获取目标方法的参数的数组
+            //例如 public Result articleById(@PathVariable("id") Long articleId)， arg[0] = articleId
             Object[] args = pjp.getArgs();
+
             //参数
             String params = "";
             for(int i=0; i<args.length; i++) {

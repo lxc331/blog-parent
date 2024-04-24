@@ -1,5 +1,6 @@
 package com.example.blog.controller;
 
+import com.example.blog.common.cache.Cache;
 import com.example.blog.service.TagService;
 import com.example.blog.vo.Result;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +15,7 @@ public class TagsController {
     @Autowired
     private TagService tagService;
     //->tag/hot
+    @Cache(expire = 5 * 60 * 1000,name = "hot")
     @GetMapping("hot")
     public Result hot() {
         int limit = 5;
