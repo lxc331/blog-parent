@@ -59,7 +59,7 @@ public class RegisterServiceImpl implements RegisterService {
          头像的上传可改进
           */
          sysUser.setAvatar(avatar);
-         sysUser.setAdmin(1);
+         sysUser.setAdmin(0);
          sysUser.setDeleted(0);
          sysUser.setSalt("");
          sysUser.setStatus("");

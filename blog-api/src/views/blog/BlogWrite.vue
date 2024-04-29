@@ -184,6 +184,17 @@ export default {
         return
       }
 
+      let notPublishWord = ["fuck","妈","草"]
+      let context = this.articleForm.editor.ref.d_render
+      let title = this.articleForm.title
+      let summary = this.articleForm.summary
+      for (const it of notPublishWord) {
+        if (context.indexOf(it) != -1 || title.indexOf(it) != -1 || summary.indexOf(it) != -1) {
+          this.$message({message: '内容、标题、摘要包含违规敏感词', type: 'warning', showClose: true})
+          return
+        }
+      }
+
       this.publishVisible = true;
     },
     publish(articleForm) {
