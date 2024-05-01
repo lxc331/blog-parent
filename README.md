@@ -9,7 +9,7 @@
 ## 前端的工程：
 对blog-api内config里的跨域配置要注意
 
-node版本为 10.16.3
+node.js版本为 10.16.3
 
 ```
 npm install
@@ -22,7 +22,7 @@ npm run dev
 进行redis端口配置
 
 ## 下载redis
-进行redis端口配置
+进行redis端口配置,默认为6379
 
 配置文件在application.yml中
 
