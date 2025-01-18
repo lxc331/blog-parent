@@ -2,7 +2,7 @@
   "name": "blog-app",
   "version": "1.0.0",
   "description": "blog-app",
-  "author": "mszlu",
+  "author": "marvel",
   "private": true,
   "scripts": {
     "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
