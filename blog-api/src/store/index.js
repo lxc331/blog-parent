@@ -79,7 +79,8 @@ export default new Vuex.Store({
     },
     // 进入聊天室
     enter_chatroom({commit, state}) {
-      window.location.href = 'http://localhost:8890/loginValidate/'+state.account;
+      const chatApi = 'http://localhost:8890';
+      window.location.href = chatApi + '/loginValidate/' + state.account;
     },
     // 退出
     logout({commit, state}) {
